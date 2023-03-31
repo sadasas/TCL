@@ -1,0 +1,275 @@
+.navbar {
+  -webkit-box-shadow: 0px 4px 5px -5px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0px 4px 5px -5px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 4px 5px -5px rgba(0, 0, 0, 0.23);
+  background-color: white;
+  color: black;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+  width: 80%;
+  margin: 0 auto;
+  transition: height 0.1s linear;
+}
+
+.nav-container.cont-sticky {
+  height: 6rem;
+}
+
+.navbar-fixed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 12rem;
+}
+
+.logo-img {
+  width: 5.5rem;
+  height: auto;
+  cursor: pointer;
+}
+
+.nav-links {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* hamburget menu */
+
+.hamburger-menu {
+  display: none;
+  gap: 1rem;
+}
+
+.hamburger-hamb,
+.hamburger-cart {
+  font-size: 2rem;
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-nav-full {
+  background-color: #f3f3f3;
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.mobile-nav-full .close-btn {
+  font-size: 3rem;
+  width: 100%;
+  padding: 20px;
+  text-align: end;
+}
+.close-btn:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.open-flex {
+  display: flex;
+}
+
+.closed-flex {
+  display: none;
+}
+
+.mobile-nav-full i {
+  font-size: 2.3rem;
+  position: absolute;
+  right: 25px;
+  top: 49px;
+  cursor: pointer;
+}
+
+.mobile-links {
+  font-size: 3rem;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  top: 44%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.mobile-links a {
+  color: black;
+  text-decoration: none;
+}
+
+.mobile-links a:hover {
+  text-decoration: underline;
+}
+
+/* cart */
+
+.cart-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  padding: 30px;
+  background-color: white;
+  height: 100vh;
+  width: 35rem;
+  transition: all 0.4s ease;
+}
+
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000075;
+  z-index: 888;
+  transition: all 0.3s ease-in;
+}
+
+.cart-title-btn {
+  font-size: 1.7rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-title-h2 {
+  font-size: 1.5rem;
+}
+
+.cart-close-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.cart-close-btn:hover {
+  cursor: pointer;
+  color: blue;
+}
+.cart-body {
+  height: 100vh;
+  padding: 0.5rem;
+}
+
+.closed-cart {
+  right: -100%;
+  width: 0;
+}
+
+.open-cart {
+  right: 0;
+}
+
+.cart-icon {
+  position: relative;
+  align-self: center;
+}
+
+.cart-icon:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.cart-icon::after {
+  content: "";
+  top: -18px;
+  position: absolute;
+  left: 12px;
+  font-size: 11px;
+  background-color: #b6002c;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  display: none;
+}
+
+.with-items::after {
+  content: attr(data-array-length);
+  top: -7px;
+  position: absolute;
+  left: 20px;
+  font-size: 1rem;
+  background-color: #b6002c;
+  color: black;
+  padding: 2px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .cart-div {
+    padding: 50px;
+  }
+
+  .nav-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .hamburger-cart,
+  .hamburger-hamb {
+    display: flex;
+  }
+
+  .open-cart {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100%;
+  }
+  .with-items::after {
+    content: attr(data-array-length);
+    top: -10px;
+    position: absolute;
+    left: 12px;
+    font-size: 1rem;
+    background-color: #b6002c;
+    color: black;
+    padding: 1px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+
+    display: block;
+  }
+}
