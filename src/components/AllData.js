@@ -62,6 +62,7 @@ import Comfy2 from "../img/products/otherProducts/comfy2.webp";
 export const items = [
   {
     id: 1,
+    piece: 1,
     category: "chair",
     img: Img1,
     description: "Little Armchair ",
@@ -75,6 +76,7 @@ export const items = [
   },
   {
     id: 2,
+    piece: 1,
     category: "lamp",
     img: Img2,
     description: "Lamp Dark Black",
@@ -88,6 +90,7 @@ export const items = [
   },
   {
     id: 3,
+    piece: 1,
     category: "lamp",
     img: Img3,
     description: "Lamp Dark Black",
@@ -101,6 +104,7 @@ export const items = [
   },
   {
     id: 4,
+    piece: 1,
     category: "furniture",
     img: Img4,
     description: "CupBoard",
@@ -113,6 +117,7 @@ export const items = [
   },
   {
     id: 5,
+    piece: 1,
     category: "furniture",
     img: Img5,
     description: "CupBoard",
@@ -125,6 +130,7 @@ export const items = [
   },
   {
     id: 6,
+    piece: 1,
     category: "furniture",
     img: Img6,
     description: "Table",
@@ -137,6 +143,7 @@ export const items = [
   },
   {
     id: 7,
+    piece: 1,
     category: "lamp",
     img: Img7,
     description: "Black and White Lamp",
@@ -150,6 +157,7 @@ export const items = [
   },
   {
     id: 8,
+    piece: 1,
     category: "furniture",
     img: Img8,
     description: "Gejst Shelf A Black Ash/Black",
@@ -163,6 +171,7 @@ export const items = [
   },
   {
     id: 9,
+    piece: 1,
     category: "furniture",
     img: Img9,
     description: "Cube Lolo Vase Black",
@@ -176,6 +185,7 @@ export const items = [
   },
   {
     id: 10,
+    piece: 1,
     category: "chair",
     img: Img10,
     description: "Traditional Armchair",
@@ -189,6 +199,7 @@ export const items = [
   },
   {
     id: 11,
+    piece: 1,
     category: "lamp",
     img: Img11,
     description: "The Sun Pendant Black",
@@ -202,6 +213,7 @@ export const items = [
   },
   {
     id: 12,
+    piece: 1,
     category: "lamp",
     img: Img12,
     description: "Simple Golden Lamp",
@@ -215,6 +227,7 @@ export const items = [
   },
   {
     id: 13,
+    piece: 1,
     category: "skin-care",
     img: Img13,
     description: "Unbleached Cotton Pads 180",
@@ -228,6 +241,7 @@ export const items = [
   },
   {
     id: 14,
+    piece: 1,
     category: "chair",
     img: Img14,
     description: "Oak Spanish Chair",
@@ -241,6 +255,7 @@ export const items = [
   },
   {
     id: 15,
+    piece: 1,
     category: "chair",
     img: Img15,
     description: "Copenhagen Armchair",
@@ -254,6 +269,7 @@ export const items = [
   },
   {
     id: 16,
+    piece: 1,
     category: "electronic",
     img: Img16,
     description: "Anti Dark Light",
@@ -267,6 +283,7 @@ export const items = [
   },
   {
     id: 17,
+    piece: 1,
     category: "lamp",
     img: Img17,
     description: "Table Lamp",
@@ -280,6 +297,7 @@ export const items = [
   },
   {
     id: 18,
+    piece: 1,
     category: "lamp",
     img: Img18,
     description: "Mat Black Lamp",
@@ -293,6 +311,7 @@ export const items = [
   },
   {
     id: 19,
+    piece: 1,
     category: "chair",
     img: Img19,
     description: "Comfy Chair",
@@ -306,6 +325,7 @@ export const items = [
   },
   {
     id: 20,
+    piece: 1,
     category: "skin-care",
     img: Img20,
     description: "Body Oil 50ml",

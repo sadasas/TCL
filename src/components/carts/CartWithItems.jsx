@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
-import React, { useContext, useEffect, useState } from "react";
-import { CartContext } from "../../pages/ProductPage";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 import EmptyCart from "./EmptyCart";
 import styles from "./cartWithItems.module.css";
 
 function CartWithItems() {
-  const { cartItem, setCartItem } = useContext(CartContext);
-
+  const cartItem = useSelector((state) => state.items);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function CartWithItems() {
         <div className={styles["full-cart"]}>
           {cartItem.map((item, id) =>
             cartItem.length !== 0 ? (
-              <CartItem key={id} item={item} setCartItem={setCartItem} />
+              <CartItem key={id} item={item} />
             ) : (
               <EmptyCart key={id} />
             )

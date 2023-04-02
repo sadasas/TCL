@@ -1,19 +1,18 @@
 import styles from "./navbar.module.css";
 import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
-import LogoImg2 from "../img/newlogo2.png";
 import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
-import { CartContext } from "../pages/ProductPage";
+import React, { useState } from "react";
 import EmptyCart from "./carts/EmptyCart";
 import CartWithItems from "./carts/CartWithItems";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
 
-  const { cartItem } = useContext(CartContext);
+  const cartItem = useSelector((state) => state.items);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {

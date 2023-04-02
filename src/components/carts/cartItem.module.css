@@ -59,13 +59,17 @@
   text-align: right;
   justify-content: space-between;
   padding: 1.5rem;
-  margin-bottom: 3rem;
+
   font-size: 2.4rem;
   font-weight: 600;
 }
 
 .cart-right i {
   cursor: pointer;
+}
+
+.delete-btn {
+  align-self: end;
 }
 
 @media (max-width: 420px) {

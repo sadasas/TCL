@@ -1,19 +1,26 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useState } from "react";
 import styles from "./productPage.module.css";
 import { items } from "../components/AllData";
 import TrendingSlider from "../components/trending/TrendingSlider";
 import Footer from "../components/Footer";
 import { useParams } from "react-router";
-export const CartContext = createContext();
+import { useDispatch } from "react-redux";
+import { addItem } from "../features/shoppingChartSlice";
 
 function ProductPage() {
   const { id } = useParams();
   const item = items.filter((item) => item.id === parseInt(id));
 
   const [quantity, setQuantity] = useState(1);
+
   const [image, setImage] = useState(item[0].img);
 
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const addToCartHandler = (i) => {
+    console.log(i);
+    dispatch(addItem(i));
+  };
 
   const changeImage = (e) => {
     setImage(e.target.src);
@@ -21,13 +28,13 @@ function ProductPage() {
 
   const increase = () => {
     if (quantity >= 1) {
-      setQuantity(quantity + 1);
+      setQuantity((e) => e + 1);
     }
   };
 
   const decrease = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity((e) => e - 1);
     }
   };
 
@@ -88,13 +95,14 @@ function ProductPage() {
                   <button onClick={increase}>+</button>
                 </div>
                 <p className={styles["product-price"]}>
-                  {calcPrice(quantity)}.00$
+                  {calcPrice(item[0].piece)}.00$
                 </p>
               </div>
               <div className={styles["atc-buy"]}>
                 <button
-                  onClick={() => {
-                    addToCart(item[0]);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    addToCartHandler(item[0]);
                     showNotify();
                   }}
                   className={styles["atc-btn"]}
