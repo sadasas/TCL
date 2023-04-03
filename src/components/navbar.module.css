@@ -14,14 +14,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6rem;
+  height: 7rem;
   width: 60%;
   margin: 0 auto;
   transition: height 0.1s linear;
 }
 
 .nav-container.cont-sticky {
-  height: 4.5rem;
+  height: 5.5rem;
 }
 
 .navbar-fixed {
@@ -230,10 +230,17 @@
 }
 
 @media (max-width: 600px) {
+  .cart-icon {
+    margin-top: 0;
+  }
   .cart-div {
     padding: 50px;
   }
-
+  .cart-body {
+    height: 100vh;
+    width: 80vw;
+    padding: 0.5rem;
+  }
   .nav-container {
     width: 100%;
     padding: 0 20px;
@@ -263,7 +270,7 @@
     top: -10px;
     position: absolute;
     left: 12px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     background-color: #b6002c;
     color: black;
     padding: 1px;

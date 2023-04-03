@@ -13,7 +13,6 @@
   gap: 2.2rem;
   overflow-x: scroll;
   overflow-y: hidden;
-  white-space: nowrap;
   scroll-behavior: smooth;
   position: relative;
   padding: 1rem 0.6rem;

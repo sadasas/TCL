@@ -1,5 +1,5 @@
 .product-page-div {
-  padding-top: 14rem;
+  padding-top: 18rem;
 }
 
 .product-div {
@@ -11,7 +11,7 @@
 
 .product-big-name {
   position: absolute;
-  font-size: 2.5rem;
+  font-size: 3rem;
   top: -100px;
   left: 50%;
   transform: translate(-50%);
@@ -24,16 +24,16 @@
 
 .big-img {
   width: 100%;
-  height: 70%;
+  height: 500px;
   display: flex;
   justify-content: center;
   margin-left: 1rem;
 }
 
 .big-img img {
-  width: 75%;
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .small-imgs {

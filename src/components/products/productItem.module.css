@@ -13,10 +13,12 @@
 
 .product-header {
   overflow: hidden;
-  height: 300px;
+  height: 280px;
 }
 .product-header img {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .product-details {
   font-size: 1.7rem;
@@ -24,7 +26,7 @@
 }
 
 .item-price {
-  font-weight: 600;
+  font-weight: 900;
   font-size: 2.2rem;
   margin-top: 1.4rem;
 }
@@ -48,4 +50,7 @@
 }
 
 @media (max-width: 430px) {
+  .product-header {
+    height: 400px;
+  }
 }

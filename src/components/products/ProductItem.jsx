@@ -22,7 +22,9 @@ function ProductItem() {
             </div>
             <div className={styles["product-details"]}>
               <p>{item.description}</p>
-              <p className={styles["item-price"]}>{item.price}$</p>
+              <p className={styles["item-price"]}>
+                <strong>{item.price}$</strong>
+              </p>
             </div>
           </Link>
         </div>
