@@ -6,4 +6,8 @@ footer {
   height: 17rem;
   color: white;
   background-color: black;
+  position: static;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
