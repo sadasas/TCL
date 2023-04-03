@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { removeItem } from "../../features/shoppingChartSlice";
-
 import styles from "./cartItem.module.css";
+import { updateItem } from "../../features/shoppingChartSlice";
 
 function CartItem({ id, item }) {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
+
+  const updateItemQuantityHandler = (name, q) =>
+    dispatch(updateItem({ description: name, piece: q }));
+
   const delCartItem = (i) => dispatch(removeItem(id));
   const increase = () => {
     if (quantity >= 1) {
@@ -21,13 +25,17 @@ function CartItem({ id, item }) {
     }
   };
 
-  const calcPrice = (quantity, item) => {
-    return quantity * item;
+  const calcPrice = (q, i) => {
+    return q * i;
   };
 
   useEffect(() => {
     setQuantity(item.piece);
   }, [item]);
+
+  useEffect(() => {
+    updateItemQuantityHandler(item.description, quantity);
+  }, [quantity]);
 
   return (
     <>

@@ -7,10 +7,11 @@ const shoppingCartSlice = createSlice({
     addItem: (state, action) => {
       let isSame = false;
 
-      if (state != null && state.length > 0) {
+      if (state.value != null && state.value.length > 0) {
         state.value.forEach((item) => {
           if (item.description === action.payload.description) {
             isSame = true;
+
             item.piece += action.payload.piece;
           }
         });
@@ -21,9 +22,16 @@ const shoppingCartSlice = createSlice({
     removeItem: (state, action) => {
       state.value.splice(action.payload, 1);
     },
+    updateItem: (state, action) => {
+      state.value.forEach((item) => {
+        if (item.description === action.payload.description) {
+          item.piece = action.payload.piece;
+        }
+      });
+    },
   },
 });
 
-export const { addItem, removeItem } = shoppingCartSlice.actions;
+export const { addItem, removeItem, updateItem } = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;

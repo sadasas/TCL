@@ -34,7 +34,7 @@ function Featured() {
               </Link>
             </div>
             <div className={`${styles["featured"]} ${styles["grid-four-low"]}`}>
-              <Link to="categories/electronics">
+              <Link to="categories/chairs">
                 <div id="img4" className={styles["lil-overlay"]}></div>
                 <img src={Main4} alt="img4" />
                 <p className={styles["main-description"]}>kitchen</p>

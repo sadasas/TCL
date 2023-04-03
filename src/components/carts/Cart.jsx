@@ -12,7 +12,10 @@ function Cart() {
 
   useEffect(() => {
     if (cartItem != null && cartItem.length > 0) {
-      const newTotalPrice = cartItem.reduce((acc, item) => acc + item.price, 0);
+      const newTotalPrice = cartItem.reduce(
+        (acc, item) => acc + item.price * item.piece,
+        0
+      );
       setTotalPrice(newTotalPrice);
     }
   }, [cartItem]);
