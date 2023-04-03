@@ -14,14 +14,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 7rem;
-  width: 80%;
+  height: 6rem;
+  width: 60%;
   margin: 0 auto;
   transition: height 0.1s linear;
 }
 
 .nav-container.cont-sticky {
-  height: 6rem;
+  height: 4.5rem;
 }
 
 .navbar-fixed {
@@ -165,7 +165,7 @@
 }
 
 .cart-close-btn {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   cursor: pointer;
 }
 .cart-close-btn:hover {
@@ -187,6 +187,7 @@
 }
 
 .cart-icon {
+  margin-top: 5px;
   position: relative;
   align-self: center;
 }
@@ -206,8 +207,8 @@
   color: white;
   padding: 5px;
   border-radius: 50%;
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   text-align: center;
   display: none;
 }
@@ -216,14 +217,14 @@
   content: attr(data-array-length);
   top: -7px;
   position: absolute;
-  left: 20px;
+  left: 15px;
   font-size: 1rem;
   background-color: #b6002c;
   color: black;
   padding: 2px;
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   text-align: center;
   display: block;
 }

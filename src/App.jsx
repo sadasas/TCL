@@ -2,15 +2,15 @@ import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
-import All from "./components/Categories-pages/All";
-import Furnitures from "./components/Categories-pages/Furnitures";
-import Lamps from "./components/Categories-pages/Lamps";
-import Kitchen from "./components/Categories-pages/Kitchen";
-import Chairs from "./components/Categories-pages/Chairs";
+import All from "./components/categories/All";
+import Furnitures from "./components/categories/Furnitures";
+import Lamps from "./components/categories/Lamps";
+import Kitchen from "./components/categories/Kitchen";
+import Chairs from "./components/categories/Chairs";
 import ProductPage from "./pages/ProductPage";
 import React from "react";
-import Table from "./components/Categories-pages/Tables";
-import Cupboards from "./components/Categories-pages/Cupboards";
+import Table from "./components/categories/Tables";
+import Cupboards from "./components/categories/Cupboards";
 
 function App() {
   return (

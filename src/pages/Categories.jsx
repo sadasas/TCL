@@ -1,4 +1,4 @@
-import CategoriesHeader from "../components/Categories-pages/CategoriesHeader";
+import CategoriesHeader from "../components/categories/CategoriesHeader";
 import { Outlet } from "react-router";
 import React from "react";
 

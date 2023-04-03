@@ -18,8 +18,9 @@ function ProductPage() {
   const dispatch = useDispatch();
 
   const addToCartHandler = (i) => {
-    console.log(i);
-    dispatch(addItem(i));
+    const nitem = { ...i, piece: quantity };
+
+    dispatch(addItem(nitem));
   };
 
   const changeImage = (e) => {
@@ -29,12 +30,14 @@ function ProductPage() {
   const increase = () => {
     if (quantity >= 1) {
       setQuantity((e) => e + 1);
+      item[0].piece = quantity;
     }
   };
 
   const decrease = () => {
     if (quantity > 1) {
       setQuantity((e) => e - 1);
+      item[0].piece = quantity;
     }
   };
 
@@ -95,7 +98,7 @@ function ProductPage() {
                   <button onClick={increase}>+</button>
                 </div>
                 <p className={styles["product-price"]}>
-                  {calcPrice(item[0].piece)}.00$
+                  {calcPrice(quantity)}.00$
                 </p>
               </div>
               <div className={styles["atc-buy"]}>

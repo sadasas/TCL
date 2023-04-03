@@ -4,15 +4,41 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import EmptyCart from "./carts/EmptyCart";
-import CartWithItems from "./carts/CartWithItems";
+import Cart from "./carts/Cart";
 import { useSelector } from "react-redux";
+
+function MobileNav({ mobileNav, setMobileNav }) {
+  return (
+    <div
+      className={`${styles["mobile-nav-full"]} ${
+        mobileNav ? styles["open-flex"] : styles["closed-flex"]
+      }`}
+    >
+      <h2 className={styles["close-btn"]}>
+        <AiOutlineClose onClick={() => setMobileNav(!mobileNav)} />
+      </h2>
+
+      <div className={styles["mobile-links"]}>
+        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
+          categories
+        </Link>
+        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamps">
+          lamps
+        </Link>
+        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/chairs">
+          chairs
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
 
-  const cartItem = useSelector((state) => state.items);
+  const cartItem = useSelector((state) => state.shoppingCart.value);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -38,31 +64,7 @@ function Navbar() {
   return (
     <>
       {/* mobile nav */}
-      <div
-        className={`${styles["mobile-nav-full"]} ${
-          mobileNav ? styles["open-flex"] : styles["closed-flex"]
-        }`}
-      >
-        <h2 className={styles["close-btn"]}>
-          <AiOutlineClose onClick={() => setMobileNav(!mobileNav)} />
-        </h2>
-
-        <div className={styles["mobile-links"]}>
-          <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
-            categories
-          </Link>
-          <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamps">
-            lamps
-          </Link>
-          <Link
-            onClick={() => setMobileNav(!mobileNav)}
-            to="/categories/chairs"
-          >
-            chairs
-          </Link>
-        </div>
-      </div>
-
+      <MobileNav mobileNav={mobileNav} setMobileNav={setMobileNav} />
       {/* overlay */}
       <div
         onClick={openCart}
@@ -88,11 +90,7 @@ function Navbar() {
         </div>
 
         <div className={styles["cart-body"]}>
-          {cartItem.length < 1 ? (
-            <EmptyCart openCart={openCart} />
-          ) : (
-            <CartWithItems />
-          )}
+          {cartItem.length < 1 ? <EmptyCart openCart={openCart} /> : <Cart />}
         </div>
       </div>
 
