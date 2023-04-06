@@ -111,3 +111,56 @@
     font-size: 1.5rem;
   }
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .main-description {
+    bottom: 1rem;
+    left: 0.5rem;
+    font-size: 1.7rem;
+  }
+  .grid-container {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "one two"
+      "four four-low";
+    grid-gap: 13px;
+    gap: 13px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .main-description {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+  }
+  .grid-container {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "one two"
+      "four four-low";
+    grid-gap: 13px;
+    gap: 13px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 768px) and(max-width: 992px) {
+  .main-description {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 2.5rem;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

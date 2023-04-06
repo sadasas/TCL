@@ -6,13 +6,13 @@ import styles from "./cartItem.module.css";
 import { updateItem } from "../../features/shoppingChartSlice";
 
 function CartItem({ id, item }) {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(item.piece);
   const dispatch = useDispatch();
 
   const updateItemQuantityHandler = (name, q) =>
     dispatch(updateItem({ description: name, piece: q }));
 
-  const delCartItem = (i) => dispatch(removeItem(id));
+  const delCartItem = (i) => dispatch(removeItem(i));
   const increase = () => {
     if (quantity >= 1) {
       setQuantity(quantity + 1);
@@ -59,7 +59,7 @@ function CartItem({ id, item }) {
             className={styles["delete-btn"]}
             onClick={(e) => {
               e.preventDefault();
-              delCartItem(item.id);
+              delCartItem(item.description);
             }}
           />
         </div>

@@ -281,3 +281,28 @@
     display: block;
   }
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .nav-container {
+    width: 100%;
+    padding: 0 40px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .nav-container {
+    width: 100%;
+    padding: 0 40px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .nav-container {
+    width: 80%;
+    padding: 0 10px;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

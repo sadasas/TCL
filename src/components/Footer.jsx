@@ -1,11 +1,11 @@
 import React from "react";
-import "./footer.module.css";
+import styles from "./footer.module.css";
 
 function Footer() {
   return (
     <>
       <footer>
-        <p className="love">
+        <p className={styles.footer}>
           Design by
           <a
             target="_blank"

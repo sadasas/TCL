@@ -20,7 +20,9 @@ const shoppingCartSlice = createSlice({
         state.value.push({ ...action.payload, id: state.value.length + 1 });
     },
     removeItem: (state, action) => {
-      state.value.splice(action.payload, 1);
+      state.value = state.value.filter((item) => {
+        return item.description !== action.payload;
+      });
     },
     updateItem: (state, action) => {
       state.value.forEach((item) => {
