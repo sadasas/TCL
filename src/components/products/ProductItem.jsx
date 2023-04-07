@@ -25,6 +25,7 @@ function ProductItem() {
             <div className={styles["product-header"]}>
               {IsLoadImg && <MyLoader />}
               <LazyLoadImage
+                className={styles["img-container"]}
                 beforeLoad={() => setIsLoadImg(true)}
                 afterLoad={() => setIsLoadImg(false)}
                 src={item.img}
