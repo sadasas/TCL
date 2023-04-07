@@ -3,14 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
 import All from "./components/categories/All";
-import Lamps from "./components/categories/Lamps";
-
-import Chairs from "./components/categories/Chairs";
 import ProductPage from "./pages/ProductPage";
 import React from "react";
-import Table from "./components/categories/Tables";
-import Cupboards from "./components/categories/Cupboards";
-import Sofa from "./components/categories/Sofa";
+import CategoriesItemChairs from "./components/categories/CategoriesItemChairs";
+import CategoriesItemTables from "./components/categories/CategoriesItemTables";
+import CategoriesItemLamp from "./components/categories/CategoriesItemLamps";
+import CategoriesItemCupboards from "./components/categories/CategoriesItemCupboards";
 
 function App() {
   return (
@@ -20,12 +18,11 @@ function App() {
         <Route index path="/" element={<Home />} />
         <Route path="categories" element={<Categories />}>
           <Route path="all" element={<All />} />
-          <Route path="sofa" element={<Sofa />} />
-          <Route path="tables" element={<Table />} />
-          <Route path="lamps" element={<Lamps />} />
-
-          <Route path="chairs" element={<Chairs />} />
-          <Route path="cupboards" element={<Cupboards />} />
+          <Route path="sofa" element={<CategoriesItemChairs />} />
+          <Route path="tables" element={<CategoriesItemTables />} />
+          <Route path="lamps" element={<CategoriesItemLamp />} />
+          <Route path="chairs" element={<CategoriesItemChairs />} />
+          <Route path="cupboards" element={<CategoriesItemCupboards />} />
         </Route>
         <Route path="categories/product/:id" element={<ProductPage />} />
       </Routes>
