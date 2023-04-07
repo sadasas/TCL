@@ -1,3 +1,5 @@
+@use "../../variables" as *;
+
 .grid-container {
   display: grid;
   height: 45rem;
@@ -16,29 +18,28 @@
   overflow: hidden;
   position: relative;
   cursor: pointer;
-}
-.featured::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: gray;
-  opacity: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    opacity: 0;
 
-  transition: 0.4s ease-in-out;
-}
-.featured:hover::before {
-  transition: 0.4s ease-in-out;
-  opacity: 0.4;
-}
-
-.featured img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
+    transition: 0.4s ease-in-out;
+  }
+  &:hover::before {
+    transition: 0.4s ease-in-out;
+    opacity: 0.4;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
 }
 
 .grid-one {
@@ -76,44 +77,8 @@
   transition: all 0.3s ease-in;
 }
 
-@media (max-width: 750px) {
-  .grid-container {
-    height: 500px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas:
-      "one two"
-      "four four-low";
-    grid-gap: 13px;
-    gap: 13px;
-  }
-}
-@media (max-width: 1024px) {
-  .main-description {
-    bottom: 1rem;
-    left: 1rem;
-    font-size: 3rem;
-  }
-}
-@media (max-width: 450px) {
-  .main-description {
-    bottom: 1rem;
-    left: 1rem;
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .main-description {
-    bottom: 1rem;
-    left: 0.5rem;
-    font-size: 1.5rem;
-  }
-}
-
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@include respond(small) {
   .main-description {
     bottom: 1rem;
     left: 0.5rem;
@@ -132,13 +97,7 @@
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
-  .main-description {
-    bottom: 1rem;
-    left: 1rem;
-    font-size: 2rem;
-  }
+@include respond(medium) {
   .grid-container {
     height: 500px;
     display: grid;
@@ -150,10 +109,15 @@
     grid-gap: 13px;
     gap: 13px;
   }
+  .main-description {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 768px) and(max-width: 992px) {
+@include respond(large) {
   .main-description {
     bottom: 1rem;
     left: 1rem;
@@ -161,6 +125,14 @@
   }
 }
 
+@include respond(extraLarge) {
+  .main-description {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 3rem;
+  }
+}
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@include respond(wide) {
 }

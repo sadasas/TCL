@@ -1,10 +1,15 @@
 import { items } from "../AllData";
 import { Link } from "react-router-dom";
-import React from "react";
-import styles from "./productItem.module.css";
+import React, { useState } from "react";
+import styles from "./productItem.module.scss";
+
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import MyLoader from "../ContentLoader";
 
 function ProductItem() {
   const filteredItems = items.filter((item) => item.id <= 8);
+
+  const [IsLoadImg, setIsLoadImg] = useState(false);
 
   return (
     <>
@@ -18,7 +23,14 @@ function ProductItem() {
             to={`/categories/product/${item.id}`}
           >
             <div className={styles["product-header"]}>
-              <img src={item.img} alt="product1" />
+              {IsLoadImg && <MyLoader />}
+              <LazyLoadImage
+                beforeLoad={() => setIsLoadImg(true)}
+                afterLoad={() => setIsLoadImg(false)}
+                src={item.img}
+                effect="blur"
+                alt="product1"
+              />
             </div>
             <div className={styles["product-details"]}>
               <p>{item.description}</p>

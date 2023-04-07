@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import EmptyCart from "./EmptyCart";
-import styles from "./cart.module.css";
+import styles from "./cart.module.scss";
 
 function Cart() {
   const cartItem = useSelector((state) => state.shoppingCart.value);

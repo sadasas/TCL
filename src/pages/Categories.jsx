@@ -1,7 +1,7 @@
 import CategoriesHeader from "../components/categories/CategoriesHeader";
 import { Outlet } from "react-router";
 import React from "react";
-import styles from "./categories.module.css";
+import styles from "./categories.module.scss";
 import Footer from "../components/Footer";
 function Categories() {
   return (

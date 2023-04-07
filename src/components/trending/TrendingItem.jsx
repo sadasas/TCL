@@ -1,9 +1,12 @@
 import { items } from "../AllData";
 import { Link } from "react-router-dom";
-import React from "react";
-import styles from "./trendingItem.module.css";
+import React, { useState } from "react";
+import styles from "./trendingItem.module.scss";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import MyLoader from "../ContentLoader";
 
 function TrendingItem() {
+  const [IsLoadImg, setIsLoadImg] = useState(false);
   const filteredItems = items.filter((item) => item.id >= 8);
   return (
     <>
@@ -14,7 +17,13 @@ function TrendingItem() {
             to={`/categories/product/${item.id}`}
           >
             <div className={styles["item-header"]}>
-              <img src={item.img} alt="product" />
+              {IsLoadImg && <MyLoader />}
+              <LazyLoadImage
+                beforeLoad={() => setIsLoadImg(true)}
+                afterLoad={() => setIsLoadImg(false)}
+                src={item.img}
+                alt="product"
+              />
             </div>
             <div className={styles["item-description"]}>
               <p>{item.description}</p>

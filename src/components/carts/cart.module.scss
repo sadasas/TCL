@@ -1,4 +1,4 @@
-/* full cart */
+@use "../../variables" as *;
 
 .full-cart {
   width: 100%;
@@ -32,25 +32,23 @@
   font-weight: 600;
 }
 
-.sub-left a {
-  font-size: 1.4rem;
-  color: black;
-  border: 2px solid black;
-  text-decoration: none;
-  background-color: transparent;
-  padding: 5px 10px;
-  transition: all 0.2s;
-}
-
-.sub-left a:hover {
-  background-color: #000000;
-  color: white;
-}
-
 .sub-left {
+  a {
+    font-size: 1.4rem;
+    color: black;
+    border: 2px solid black;
+    text-decoration: none;
+    background-color: transparent;
+    padding: 5px 10px;
+    transition: all 0.2s;
+    &:hover {
+      background-color: #000000;
+      color: white;
+    }
+  }
 }
 
-@media (max-width: 420px) {
+@include respond(small) {
   .cart-item {
     grid-template-columns: 1fr;
     height: 100%;

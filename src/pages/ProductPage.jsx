@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import styles from "./productPage.module.css";
+import styles from "./productPage.module.scss";
 import { items } from "../components/AllData";
 import TrendingSlider from "../components/trending/TrendingSlider";
 import Footer from "../components/Footer";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/shoppingChartSlice";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import MyLoader from "../components/ContentLoader";
 
 function ProductPage() {
+  const [IsLoadImg, setIsLoadImg] = useState(false);
   const { id } = useParams();
   const item = items.filter((item) => item.id === parseInt(id));
 
@@ -63,12 +66,17 @@ function ProductPage() {
       <div className={styles["product-page-div"]}>
         <div className="container">
           <div className={styles["product-div"]}>
-            <h3 className={styles["product-big-name"]}>
+            <h1 className={styles["product-big-name"]}>
               {item[0].description}
-            </h3>
+            </h1>
             <div className={styles["product-left"]}>
               <div className={styles["big-img"]}>
-                <img src={image} alt="product" />
+                {IsLoadImg && <MyLoader />}
+                <LazyLoadImage
+                  beforeLoad={() => setIsLoadImg(true)}
+                  afterLoad={() => setIsLoadImg(false)}
+                  src={image}
+                />
               </div>
               <div className={styles["small-imgs"]}>
                 <img

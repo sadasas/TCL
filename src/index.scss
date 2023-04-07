@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 :root {
   font-family: "Lucida Console", monospace;
   line-height: 1.5;
@@ -22,11 +24,10 @@ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  &:hover {
+    color: #535bf2;
+  }
 }
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0 auto;
   width: 100%;
@@ -40,9 +41,9 @@ body {
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@include respond(small) {
   html {
-    font-size: 12px;
+    font-size: 11px;
   }
   .container {
     width: 90%;
@@ -51,7 +52,7 @@ body {
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
+@include respond(medium) {
   html {
     font-size: 12px;
   }
@@ -62,7 +63,7 @@ body {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@include respond(large) {
   html {
     font-size: 11px;
   }
@@ -72,7 +73,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@include respond(extraLarge) {
   html {
     font-size: 11px;
   }
@@ -82,7 +83,7 @@ body {
   }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@include respond(wide) {
   html {
     font-size: 11px;
   }

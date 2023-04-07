@@ -1,7 +1,7 @@
 import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import TrendingItem from "./TrendingItem";
-import styles from "./trendingSlider.module.css";
+import styles from "./trendingSlider.module.scss";
 
 function TrendingSlider() {
   const slideLeft = () => {

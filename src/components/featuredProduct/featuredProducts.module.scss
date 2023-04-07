@@ -1,3 +1,5 @@
+@use "../../variables" as *;
+
 a {
   text-decoration: none;
   color: black;
@@ -7,7 +9,7 @@ a {
   padding: 11rem 0;
 }
 
-.featured-h2 {
+.title {
   font-size: 2.6rem;
   font-weight: 600;
   margin-bottom: 4.2rem !important;
@@ -20,14 +22,14 @@ a {
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@include respond(small) {
   .products-grid {
     grid-template-columns: 1fr;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 600px) and (max-width: 768px) {
+@include respond(medium) {
   .products-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -36,7 +38,7 @@ a {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 768px) and(max-width: 992px) {
+@include respond(large) {
   .products-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -44,6 +46,9 @@ a {
   }
 }
 
+@include respond(extraLarge) {
+}
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+@include respond(wide) {
 }

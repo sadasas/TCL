@@ -1,4 +1,4 @@
-import styles from "./navbar.module.css";
+import styles from "./navbar.module.scss";
 import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
@@ -80,7 +80,7 @@ function Navbar() {
         }`}
       >
         <div className={styles["cart-title-btn"]}>
-          <h2 className={styles["cart-title-h2"]}>
+          <h2 className={styles["cart-title"]}>
             Your Shopping Cart ({cartItem.length})
           </h2>
           <AiOutlineClose

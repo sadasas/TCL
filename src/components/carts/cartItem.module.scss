@@ -1,8 +1,10 @@
+@use "../../variables" as *;
+
 .cart-item {
   width: 100%;
   height: 12rem;
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   border: 1px solid #717171;
   border-radius: 3px;
   background-color: #f2f2f2;
@@ -14,13 +16,12 @@
   width: 100%;
   height: 11rem;
   background-color: white;
-}
-
-.cart-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 3px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 3px;
+  }
 }
 
 .cart-middle {
@@ -32,25 +33,23 @@
 .cart-btns {
   display: flex;
   gap: 5px;
-}
-
-.cart-btns button {
-  width: 25px;
-  height: 25px;
-  background-color: black;
-  color: white;
-  cursor: pointer;
-  text-align: center;
-  display: inline-block;
-}
-
-.cart-btns p {
-  font-size: 1.5rem;
-  outline: 2px solid black;
-  outline-offset: -2px;
-  width: 2.5rem;
-  text-align: center;
-  display: flow-root list-item;
+  button {
+    width: 25px;
+    height: 25px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+  }
+  p {
+    font-size: 1.5rem;
+    outline: 2px solid black;
+    outline-offset: -2px;
+    width: 2.5rem;
+    text-align: center;
+    display: flow-root list-item;
+  }
 }
 
 .cart-name {
@@ -66,10 +65,9 @@
 
   font-size: 1.2rem;
   font-weight: 600;
-}
-
-.cart-right i {
-  cursor: pointer;
+  i {
+    cursor: pointer;
+  }
 }
 
 .delete-btn {
@@ -78,7 +76,11 @@
   cursor: pointer;
 }
 
-@media (max-width: 420px) {
+.cart-price {
+  font-size: 1.2rem;
+}
+
+@include respond(small) {
   .cart-item {
     grid-template-columns: 1fr;
     height: 100%;
@@ -88,11 +90,12 @@
   .cart-img {
     width: 100%;
     height: 100%;
+    img {
+      width: 100%;
+      height: 250px;
+    }
   }
-  .cart-img img {
-    width: 100%;
-    height: 250px;
-  }
+
   .cart-middle {
     align-items: center;
     gap: 2rem;
@@ -102,7 +105,9 @@
     text-align: center;
     flex-direction: row;
   }
-
+  .delete-btn {
+    font-size: 2.5rem;
+  }
   /* .full-cart-div {
         height: 63%;
     } */
