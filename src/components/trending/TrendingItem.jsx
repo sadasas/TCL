@@ -13,7 +13,10 @@ function TrendingItem() {
       {filteredItems.map((item) => (
         <div key={item.id} className={styles["row-item"]}>
           <Link
-            onClick={() => window.top(0, 0)}
+            onClick={() => {
+              location.reload();
+              window.scrollTo(0, 0);
+            }}
             to={`/categories/product/${item.id}`}
           >
             <div className={styles["item-header"]}>
