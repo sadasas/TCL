@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
+      <Routes forceRefresh={true}>
         <Route index path="/" element={<Home />} />
         <Route path="categories" element={<Categories />}>
           <Route path="all" element={<All />} />

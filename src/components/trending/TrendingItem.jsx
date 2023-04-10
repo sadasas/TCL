@@ -14,7 +14,7 @@ function TrendingItem() {
         <div key={item.id} className={styles["row-item"]}>
           <Link
             onClick={() => {
-              window.scrollTo(0, 0);
+              window.top(0, 0);
             }}
             to={`/categories/product/${item.id}`}
           >

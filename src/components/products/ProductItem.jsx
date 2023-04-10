@@ -20,8 +20,7 @@ function ProductItem() {
         >
           <Link
             onClick={() => {
-              location.reload();
-              window.scrollTo(0, 0);
+              window.top(0, 0);
             }}
             to={`/categories/product/${item.id}`}
           >
