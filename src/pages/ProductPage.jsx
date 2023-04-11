@@ -7,8 +7,8 @@ import { items } from "../AllData";
 import TrendingSlider from "../components/trending/TrendingSlider";
 import Footer from "../components/Footer";
 import { addItem } from "../features/shoppingChartSlice";
-import MyLoader from "../components/ContentLoader";
 import styles from "./productPage.module.scss";
+import Placeholder from "/img/placeholder/loadingImage.svg";
 
 function ProductPage() {
   const dispatch = useDispatch();
@@ -78,7 +78,7 @@ function ProductPage() {
             <div className={styles["product-left"]}>
               <div className={styles["big-img"]}>
                 <LazyLoadImage
-                  placeholder={<MyLoader />}
+                  placeholderSrc={Placeholder}
                   effect="blur"
                   src={image}
                 />

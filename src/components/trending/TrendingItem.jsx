@@ -1,9 +1,10 @@
 import { items } from "../../AllData";
 import { Link } from "react-router-dom";
 import React from "react";
-import styles from "./trendingItem.module.scss";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import MyLoader from "../ContentLoader";
+
+import styles from "./trendingItem.module.scss";
+import Placeholder from "/img/placeholder/loadingImage.svg";
 
 function TrendingItem() {
   const filteredItems = items.filter((item) => item.id >= 8);
@@ -14,7 +15,7 @@ function TrendingItem() {
           <Link to={`/categories/product/${item.id}`}>
             <div className={styles["item-header"]}>
               <LazyLoadImage
-                placeholder={<MyLoader />}
+                placeholderSrc={Placeholder}
                 src={item.img}
                 effect="blur"
                 alt="product"

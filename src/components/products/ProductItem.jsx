@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import { items } from "../../AllData";
 import styles from "./productItem.module.scss";
-import MyLoader from "../ContentLoader";
+import Placeholder from "/img/placeholder/loadingImage.svg";
 
 function ProductItem() {
   const filteredItems = items.filter((item) => item.id <= 8);
@@ -18,6 +18,7 @@ function ProductItem() {
               <LazyLoadImage
                 className={styles["img-container"]}
                 effect="blur"
+                placeholderSrc={Placeholder}
                 src={item.img}
               />
             </div>

@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import { items } from "../../AllData";
 import styles from "./categoriesItem.module.scss";
-import MyLoader from "../ContentLoader";
+import Placeholder from "/img/placeholder/loadingImage.svg";
 
 function CategoriesItem() {
   return (
@@ -16,7 +16,10 @@ function CategoriesItem() {
               <div key={item.id} className={`${styles["product"]} ${"normal"}`}>
                 <Link to={`/categories/product/${item.id}`}>
                   <div className={styles["product-header"]}>
-                    <LazyLoadImage src={item.img} />
+                    <LazyLoadImage
+                      placeholderSrc={Placeholder}
+                      src={item.img}
+                    />
                   </div>
                   <div className={styles["product-details"]}>
                     <p>{item.description}</p>
