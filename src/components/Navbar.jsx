@@ -1,11 +1,12 @@
-import styles from "./navbar.module.scss";
 import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import styles from "./navbar.module.scss";
 import EmptyCart from "./carts/EmptyCart";
 import Cart from "./carts/Cart";
-import { useSelector } from "react-redux";
 
 function MobileNav({ mobileNav, setMobileNav }) {
   return (
@@ -52,14 +53,9 @@ function Navbar() {
     setCart(!cart);
   };
 
-  window.addEventListener("scroll", handleScroll);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>

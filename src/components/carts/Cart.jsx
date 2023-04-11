@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import CartItem from "./CartItem";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+import CartItem from "./CartItem";
 import EmptyCart from "./EmptyCart";
 import styles from "./cart.module.scss";
 

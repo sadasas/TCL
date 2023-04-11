@@ -1,5 +1,6 @@
 import React from "react";
-import EmptyCartImg from "../../img/cart/empty-cart.png";
+
+import EmptyCartImg from "/img/cart/empty-cart.png";
 import styles from "./emptyCart.module.scss";
 
 function EmptyCart({ openCart }) {

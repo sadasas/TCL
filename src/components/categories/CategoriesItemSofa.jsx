@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { items } from "../AllData";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import { items } from "../../AllData";
 import MyLoader from "../ContentLoader";
 import styles from "./categoriesItem.module.scss";
 
 function CategoriesItemSofa() {
-  const [IsLoadImg, setIsLoadImg] = useState(false);
   const filteredItems = items.filter((item) => item.category === "sofa");
   return (
     <>
@@ -17,12 +17,7 @@ function CategoriesItemSofa() {
               <div key={item.id} className={`${styles["product"]} ${"normal"}`}>
                 <Link to={`/categories/product/${item.id}`}>
                   <div className={styles["product-header"]}>
-                    {IsLoadImg && <MyLoader />}
-                    <LazyLoadImage
-                      beforeLoad={() => setIsLoadImg(true)}
-                      afterLoad={() => setIsLoadImg(false)}
-                      src={item.img}
-                    />
+                    <LazyLoadImage src={item.img} />
                   </div>
                   <div className={styles["product-details"]}>
                     <p>{item.description}</p>

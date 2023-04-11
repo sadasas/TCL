@@ -46,9 +46,10 @@
   align-items: center;
   padding: 3rem 2rem;
   img {
+    aspect-ratio: 4/4;
     width: 22%;
     height: 20%;
-    object-fit: cover;
+    object-fit: contain;
     cursor: pointer;
     &:hover {
       outline: 1px solid rgba(0, 0, 0, 0.3);

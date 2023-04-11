@@ -4,7 +4,7 @@ import Featured from "../components/featuredProduct/Featured";
 import Footer from "../components/Footer";
 import ProudProducts from "../components/featuredProduct/FeaturedProducts";
 import TrendingSlider from "../components/trending/TrendingSlider";
-import Banner1 from "../img/banner/banner1.jpg";
+import Banner1 from "/img/banner/banner1.jpg";
 
 function Home() {
   return (

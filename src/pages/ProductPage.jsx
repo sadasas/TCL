@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import styles from "./productPage.module.scss";
-import { items } from "../components/AllData";
-import TrendingSlider from "../components/trending/TrendingSlider";
-import Footer from "../components/Footer";
+import React, { useState, useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
+
+import { items } from "../AllData";
+import TrendingSlider from "../components/trending/TrendingSlider";
+import Footer from "../components/Footer";
 import { addItem } from "../features/shoppingChartSlice";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import MyLoader from "../components/ContentLoader";
+import styles from "./productPage.module.scss";
 
 function ProductPage() {
-  const [IsLoadImg, setIsLoadImg] = useState(false);
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const item = items.filter((item) => item.id === parseInt(id));
-
+  const [item, setItem] = useState(
+    items.filter((item) => item.id === parseInt(id))
+  );
   const [quantity, setQuantity] = useState(1);
 
   const [image, setImage] = useState(item[0].img);
-
-  const dispatch = useDispatch();
 
   const addToCartHandler = (i) => {
     const nitem = { ...i, piece: quantity };
@@ -54,6 +54,12 @@ function ProductPage() {
     setNotify(!notify);
   };
 
+  useEffect(() => {
+    const newItem = items.filter((item) => item.id === parseInt(id));
+    setItem(newItem);
+    setImage(newItem[0].img);
+  }, [id]);
+
   return (
     <>
       <div
@@ -71,10 +77,9 @@ function ProductPage() {
             </h1>
             <div className={styles["product-left"]}>
               <div className={styles["big-img"]}>
-                {IsLoadImg && <MyLoader />}
                 <LazyLoadImage
-                  beforeLoad={() => setIsLoadImg(true)}
-                  afterLoad={() => setIsLoadImg(false)}
+                  placeholder={<MyLoader />}
+                  effect="blur"
                   src={image}
                 />
               </div>

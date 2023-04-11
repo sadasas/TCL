@@ -1,38 +1,24 @@
-import { items } from "../AllData";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import styles from "./productItem.module.scss";
-
+import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import { items } from "../../AllData";
+import styles from "./productItem.module.scss";
 import MyLoader from "../ContentLoader";
 
 function ProductItem() {
   const filteredItems = items.filter((item) => item.id <= 8);
 
-  const [IsLoadImg, setIsLoadImg] = useState(false);
-
   return (
     <>
       {filteredItems.map((item) => (
-        <div
-          key={item.id}
-          className={`${styles["product"]} ${styles["normal"]}`}
-        >
-          <Link
-            onClick={() => {
-              window.top(0, 0);
-            }}
-            to={`/categories/product/${item.id}`}
-          >
+        <div key={item.id} className={`${styles["product"]}`}>
+          <Link to={`/categories/product/${item.id}`}>
             <div className={styles["product-header"]}>
-              {IsLoadImg && <MyLoader />}
               <LazyLoadImage
                 className={styles["img-container"]}
-                beforeLoad={() => setIsLoadImg(true)}
-                afterLoad={() => setIsLoadImg(false)}
-                src={item.img}
                 effect="blur"
-                alt="product1"
+                src={item.img}
               />
             </div>
             <div className={styles["product-details"]}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
+
 import { removeItem } from "../../features/shoppingChartSlice";
 import styles from "./cartItem.module.scss";
 import { updateItem } from "../../features/shoppingChartSlice";
