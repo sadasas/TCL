@@ -1,11 +1,61 @@
+@use "../../variables" as *;
+
 .empty-cart {
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   margin: 10rem auto;
   p {
     font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 1rem;
+    font-weight: 800;
+    margin-top: 4rem;
   }
+  img {
+    width: 300px;
+  }
+}
+
+@include respond(extraSmall) {
+  .empty-cart {
+    img {
+      width: 100px;
+    }
+  }
+}
+
+@include respond(small) {
+  .empty-cart {
+    img {
+      width: 150px;
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@include respond(medium) {
+  .empty-cart {
+    img {
+      width: 200px;
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@include respond(large) {
+  .empty-cart {
+    img {
+      width: 250px;
+    }
+  }
+}
+@include respond(extraLarge) {
+  .empty-cart {
+    img {
+      width: 300px;
+    }
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@include respond(wide) {
 }

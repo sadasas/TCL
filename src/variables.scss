@@ -20,7 +20,12 @@
     }
   }
   @if ($breakpoint == small) {
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 600px) and (min-width: 420px) {
+      @content;
+    }
+  }
+  @if ($breakpoint == extraSmall) {
+    @media only screen and (max-width: 420px) {
       @content;
     }
   }

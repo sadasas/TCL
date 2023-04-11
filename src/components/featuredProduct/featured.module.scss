@@ -77,6 +77,25 @@
   transition: all 0.3s ease-in;
 }
 
+@include respond(extraSmall) {
+  .main-description {
+    bottom: 1rem;
+    left: 0.5rem;
+    font-size: 1.7rem;
+  }
+  .grid-container {
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "one two"
+      "four four-low";
+    grid-gap: 13px;
+    gap: 13px;
+  }
+}
+
 /* Extra small devices (phones, 600px and down) */
 @include respond(small) {
   .main-description {
