@@ -21,7 +21,10 @@ function TrendingItem() {
                 alt="product"
               />
             </div>
-            <div className={styles["item-description"]}>
+            <div
+              style={{ content: "sds" }}
+              className={styles["item-description"]}
+            >
               <p>{item.description}</p>
               <p className={styles["item-price"]}>{item.price}$</p>
             </div>

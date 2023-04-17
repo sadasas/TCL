@@ -20,10 +20,10 @@ function TrendingSlider() {
         <div className={styles["title-btns"]}>
           <h3>Trending Now</h3>
           <div className={styles["btns"]}>
-            <button title={styles["scroll-left"]} onClick={slideLeft}>
+            <button onClick={slideLeft}>
               <IoIosArrowBack />
             </button>
-            <button title="scroll right" onClick={slideRight}>
+            <button onClick={slideRight}>
               <IoIosArrowForward />
             </button>
           </div>
