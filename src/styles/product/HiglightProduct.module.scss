@@ -1,0 +1,107 @@
+@use "@/variables" as *;
+
+.higlight-container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+.title-mobile {
+  margin-bottom: 10px;
+  display: none;
+}
+.left-content {
+  flex: 1 1 0;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+
+  position: relative;
+}
+
+.more-btn {
+  cursor: pointer;
+  position: absolute;
+  font-size: 3rem;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.right-content {
+  flex: 4 1 0;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  &:hover {
+    .navigation {
+      display: inline;
+    }
+  }
+}
+
+.slider-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  & > * {
+    flex: 0 0 auto;
+  }
+}
+.navigation {
+  display: none;
+  position: absolute;
+  font-size: 3rem;
+  align-self: center;
+  color: rgb(66, 66, 66);
+  cursor: pointer;
+}
+
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+
+@include respond(extraSmall) {
+  .title-mobile {
+    display: inline-block;
+  }
+  .left-content {
+    display: none;
+  }
+}
+/* Extra small devices (phones, 600px and down) */
+@include respond(small) {
+  .title-mobile {
+    display: inline-block;
+  }
+  .left-content {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@include respond(medium) {
+  .right-content {
+    flex: 2 1 0;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@include respond(large) {
+  .right-content {
+    flex: 3 1 0;
+  }
+}
+
+@include respond(extraLarge) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@include respond(wide) {
+}

@@ -1,4 +1,4 @@
-@use "../../variables" as *;
+@use "@/variables" as *;
 
 .product {
   outline: 2px solid rgba(0, 0, 0, 0.205);
@@ -11,14 +11,12 @@
   &:hover {
     outline: 2px solid rgba(0, 0, 0, 0.7);
   }
-  max-width: 23%;
-  min-width: 23%;
-  flex: 1 1 23%;
+  width: 210px;
 }
 
 .product-header {
   overflow: hidden;
-  height: 220px;
+  height: 170px;
 
   img {
     width: 100%;
@@ -28,55 +26,69 @@
   span {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: calc(100% / 2) !important;
   }
 }
 
 .product-details {
   font-size: 1.5rem;
-  padding: 1rem;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p {
+    &:first-child {
+      -webkit-line-clamp: 2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      white-space: normal;
+      overflow: hidden;
+    }
+  }
 }
 
 .item-price {
   font-weight: 900;
   font-size: 2rem;
-  margin-top: 1.4rem;
 }
 
 @include respond(extraSmall) {
   .product {
-    max-width: 80%;
-    min-width: 80%;
+    max-width: 45%;
+    min-width: 45%;
   }
   .product-header {
-    height: 220px;
+    height: 100px;
   }
   .product-details {
-    font-size: 1.4rem;
+    font-size: 1rem;
     padding: 1rem;
+    height: 80px;
   }
   .item-price {
-    font-size: 1.9rem;
-    margin-top: 1.4rem;
+    font-size: 1.3rem;
   }
 }
 
 /* Extra small devices (phones, 600px and down) */
 @include respond(small) {
   .product {
-    max-width: 47%;
-    min-width: 47%;
+    width: 120px;
   }
   .product-header {
-    height: 170px;
+    height: 100px;
   }
   .product-details {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     padding: 1rem;
+    height: 80px;
   }
   .item-price {
-    font-size: 1.5rem;
-    margin-top: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -84,52 +96,51 @@
 
 @include respond(medium) {
   .product {
-    max-width: 31%;
-    min-width: 31%;
+    width: 130px;
   }
   .product-header {
     height: 130px;
   }
   .product-details {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     padding: 1rem;
+    height: 80px;
   }
   .item-price {
-    font-size: 1.4rem;
-    margin-top: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @include respond(large) {
   .product {
-    max-width: 31%;
-    min-width: 31%;
+    width: 170px;
   }
   .product-header {
-    height: 200px;
+    height: 150px;
   }
   .product-details {
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 1rem;
   }
   .item-price {
-    font-size: 1.6rem;
-    margin-top: 1.4rem;
+    font-size: 1.3rem;
   }
 }
 
 @include respond(extraLarge) {
+  .product {
+    width: 170px;
+  }
   .product-header {
-    height: 180px;
+    height: 160px;
   }
   .product-details {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     padding: 1rem;
   }
   .item-price {
-    font-size: 1.6rem;
-    margin-top: 1.4rem;
+    font-size: 1.4rem;
   }
 }
 

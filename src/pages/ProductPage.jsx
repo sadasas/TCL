@@ -4,11 +4,12 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 
 import { items } from "../AllData";
-import TrendingSlider from "../components/trending/TrendingSlider";
+
 import Footer from "../components/Footer";
 import { addItem } from "../features/shoppingChartSlice";
 import styles from "./productPage.module.scss";
 import Placeholder from "/img/placeholder/loadingImage.svg";
+import HigligthProduct from "../components/products/HigligthProduct";
 
 function ProductPage() {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ function ProductPage() {
   const [quantity, setQuantity] = useState(1);
 
   const [image, setImage] = useState(item[0].img);
+
+  const trendingProducts = items.filter((item) => item.id > 8);
 
   const addToCartHandler = (i) => {
     const nitem = { ...i, piece: quantity };
@@ -130,9 +133,14 @@ function ProductPage() {
             </div>
           </div>
         </div>
-        <TrendingSlider />
-        <Footer />
+        <HigligthProduct
+          logoUrl="/img/trending.svg"
+          title={"Trending Items"}
+          items={trendingProducts}
+          colorTitle="#146C94"
+        />
       </div>
+      <Footer />
     </>
   );
 }

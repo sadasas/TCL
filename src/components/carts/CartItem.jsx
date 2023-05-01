@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
-import { removeItem } from "../../features/shoppingChartSlice";
-import styles from "./cartItem.module.scss";
-import { updateItem } from "../../features/shoppingChartSlice";
+import { removeItem } from "@/features/shoppingChartSlice";
+import styles from "@/styles/cart/CartItem.module.scss";
+import { updateItem } from "@/features/shoppingChartSlice";
 
 function CartItem({ id, item }) {
   const [quantity, setQuantity] = useState(item.piece);
@@ -47,9 +47,9 @@ function CartItem({ id, item }) {
         <div className={styles["cart-middle"]}>
           <p className={styles["cart-name"]}>{item.description}</p>
           <div className={styles["cart-btns"]}>
-            <button onClick={decrease}>-</button>
+            <h2 onClick={decrease}>-</h2>
             <p className={styles.quantity}>{quantity}</p>
-            <button onClick={increase}>+</button>
+            <h2 onClick={increase}>+</h2>
           </div>
         </div>
         <div className={styles["cart-right"]}>

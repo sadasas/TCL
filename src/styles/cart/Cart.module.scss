@@ -1,6 +1,13 @@
 @use "../../variables" as *;
 
-.full-cart {
+.cart-container {
+  overflow-y: scroll;
+  padding: 5px;
+  max-height: 60%;
+  margin-top: 2rem;
+  margin-right: -0.5rem;
+}
+.cart-content-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -8,15 +15,8 @@
   gap: 2rem;
 }
 
-.full-cart-div {
-  overflow-y: scroll;
-  padding: 5px;
-  max-height: 60%;
-  margin-top: 2rem;
-  margin-right: -0.5rem;
-}
 /* subtotal */
-.subtotal-div {
+.subtotal-container {
   display: flex;
   width: 100%;
   height: 12rem;
@@ -49,22 +49,12 @@
 }
 
 @include respond(extraSmall) {
-  .cart-item {
-    grid-template-columns: 1fr;
-    height: 100%;
-    width: 90%;
-  }
-
-  .subtotal-div {
+  .subtotal-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
   }
-
-  /* .full-cart-div {
-        height: 63%;
-    } */
 }
 @include respond(small) {
   .cart-item {
@@ -73,14 +63,10 @@
     width: 90%;
   }
 
-  .subtotal-div {
+  .subtotal-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
   }
-
-  /* .full-cart-div {
-        height: 63%;
-    } */
 }

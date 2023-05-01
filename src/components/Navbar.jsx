@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-import styles from "./navbar.module.scss";
+import styles from "@/styles/Navbar.module.scss";
 import EmptyCart from "./carts/EmptyCart";
 import Cart from "./carts/Cart";
 
@@ -71,65 +71,49 @@ function Navbar() {
 
       {/* cart */}
       <div
-        className={`${styles["cart-div"]} ${
+        className={`${styles["cart-container"]} ${
           cart ? styles["open-cart"] : styles["closed-cart"]
         }`}
       >
-        <div className={styles["cart-title-btn"]}>
-          <h2 className={styles["cart-title"]}>
-            Your Shopping Cart ({cartItem.length})
-          </h2>
-          <AiOutlineClose
-            className={styles["cart-close-btn"]}
-            onClick={openCart}
-          />
-        </div>
+        <h2 className={styles["cart-title"]}>Cart ({cartItem.length})</h2>
 
-        <div className={styles["cart-body"]}>
+        <AiOutlineClose
+          className={styles["cart-close-btn"]}
+          onClick={openCart}
+        />
+        <div className={styles["cart-content-container"]}>
           {cartItem.length < 1 ? <EmptyCart openCart={openCart} /> : <Cart />}
         </div>
       </div>
 
-      <nav className={styles.navbar}>
+      <nav className={styles.container}>
         <div
           className={`${styles["nav-container"]} ${
-            sticky ? styles["cont-sticky"] : null
+            sticky ? styles["nav-container-sticky"] : null
           }`}
         >
-          <Link to="/">
-            <h2>TCL</h2>
-          </Link>
-          <div className={styles["nav-links"]}>
-            <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
-              categories
+          <div
+            className={`${styles["nav-content-container"]} ${styles["nav-links"]}`}
+          >
+            <Link className={styles.logo} to="/">
+              <h2>TCL</h2>
             </Link>
+            <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
+              <h2>categories</h2>
+            </Link>
+          </div>
+          <div className={styles["nav-content-container"]}>
             <h2
               className={` ${styles["cart-icon"]} ${
-                cartItem.length > 0 ? styles["with-items"] : null
+                cartItem.length > 0 ? styles["cart-icon-with-items"] : null
               }`}
               data-array-length={cartItem.length}
             >
               <AiOutlineShoppingCart onClick={openCart} />
             </h2>
-          </div>
-          <div className={styles["hamburger-menu"]}>
-            <h2
-              className={` ${styles["cart-icon"]} ${
-                cartItem.length > 0 ? styles["with-items"] : null
-              }`}
-              data-array-length={cartItem.length}
-            >
-              <AiOutlineShoppingCart
-                onClick={openCart}
-                className={` ${styles["hamburger-cart"]} ${
-                  styles["cart-icon"]
-                } ${cartItem.length > 0 ? styles["with-items"] : null}`}
-              />
-            </h2>
-
             <RxHamburgerMenu
               onClick={() => setMobileNav(!mobileNav)}
-              className={styles["hamburger-hamb"]}
+              className={styles["hamburger-icon"]}
             />
           </div>
         </div>

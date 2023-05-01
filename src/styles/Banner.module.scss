@@ -1,0 +1,163 @@
+@use "../variables" as *;
+
+.banner-container {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.banner-container-reverse {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-direction: row-reverse;
+}
+
+.left-container {
+  width: 50%;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #e9e9e9;
+  h2 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  p {
+    font-size: 1.8rem;
+  }
+}
+
+.right-container {
+  width: 50%;
+  text-align: end;
+  background-color: #e9e9e9;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.text-container {
+  button {
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: all 0.15s;
+    &:hover {
+      background-color: transparent;
+      color: black;
+    }
+  }
+}
+@include respond(extraSmall) {
+  .banner-container,
+  .banner-container-reverse {
+    flex-direction: column-reverse;
+    overflow: hidden;
+  }
+  .left-container {
+    width: 100%;
+    padding: 20px;
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .text-container {
+    button {
+      font-size: 0.8rem;
+    }
+  }
+  .right-container {
+    width: 100%;
+  }
+}
+
+@include respond(small) {
+  .banner-container,
+  .banner-container-reverse {
+    flex-direction: column-reverse;
+    overflow: hidden;
+  }
+  .left-container {
+    width: 100%;
+    padding: 20px;
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .text-container {
+    button {
+      font-size: 0.8rem;
+    }
+  }
+  .right-container {
+    width: 100%;
+  }
+}
+
+@include respond(medium) {
+  .left-container {
+    h2 {
+      font-size: 1.7rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+  .text-container {
+    button {
+      font-size: 1rem;
+    }
+  }
+}
+
+@include respond(large) {
+  .left-container {
+    h2 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  }
+  .text-container {
+    button {
+      font-size: 1.3rem;
+    }
+  }
+}
+@include respond(extraLarge) {
+  .left-container {
+    h2 {
+      font-size: 2.6rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+  }
+  .text-container {
+    button {
+      font-size: 1.5rem;
+    }
+  }
+}

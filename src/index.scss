@@ -64,7 +64,7 @@ body {
 /* Medium devices (landscape tablets, 768px and up) */
 @include respond(medium) {
   html {
-    font-size: 12px;
+    font-size: 11px;
   }
   .container {
     width: 580px;
@@ -75,7 +75,7 @@ body {
 /* Large devices (laptops/desktops, 992px and up) */
 @include respond(large) {
   html {
-    font-size: 11px;
+    font-size: 12px;
   }
   .container {
     width: 748px;

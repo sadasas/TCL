@@ -1,13 +1,13 @@
-@use "../../variables" as *;
+@use "@/variables" as *;
 
 .empty-cart {
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  margin: 10rem auto;
-  p {
-    font-size: 1.5rem;
+  justify-content: center;
+  margin: 0 auto;
+  h2 {
     font-weight: 800;
     margin-top: 4rem;
   }
@@ -19,7 +19,7 @@
 @include respond(extraSmall) {
   .empty-cart {
     img {
-      width: 100px;
+      width: 150px;
     }
   }
 }
@@ -27,7 +27,7 @@
 @include respond(small) {
   .empty-cart {
     img {
-      width: 150px;
+      width: 210px;
     }
   }
 }
@@ -36,7 +36,7 @@
 @include respond(medium) {
   .empty-cart {
     img {
-      width: 200px;
+      width: 220px;
     }
   }
 }
@@ -45,14 +45,14 @@
 @include respond(large) {
   .empty-cart {
     img {
-      width: 250px;
+      width: 220px;
     }
   }
 }
 @include respond(extraLarge) {
   .empty-cart {
     img {
-      width: 300px;
+      width: 220px;
     }
   }
 }

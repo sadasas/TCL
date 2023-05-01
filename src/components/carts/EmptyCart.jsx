@@ -1,13 +1,13 @@
 import React from "react";
 
-import EmptyCartImg from "/img/cart/empty-cart.png";
-import styles from "./emptyCart.module.scss";
+import EmptyCartImg from "/img/cart/emptyCart.svg";
+import styles from "@/styles/cart/EmptyCart.module.scss";
 
 function EmptyCart({ openCart }) {
   return (
     <div className={styles["empty-cart"]}>
       <img src={EmptyCartImg} alt="empty-cart" />
-      <p>Your cart is empty</p>
+      <h2>Your cart is empty</h2>
     </div>
   );
 }

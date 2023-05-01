@@ -1,4 +1,4 @@
-@use "../../variables" as *;
+@use "@/variables" as *;
 
 .grid-container {
   display: grid;
@@ -8,10 +8,6 @@
   grid-template-areas: "one four two" "one four-low two";
   gap: 1.3rem;
   margin-top: 1.3rem;
-}
-
-.home-container {
-  padding-top: 12rem;
 }
 
 .featured {
@@ -40,6 +36,13 @@
     object-fit: cover;
     object-position: 50% 50%;
   }
+  span {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: calc(100% / 2) !important;
+  }
 }
 
 .grid-one {
@@ -67,7 +70,7 @@
   font-weight: 600;
 }
 
-.lil-overlay {
+.overlay {
   position: absolute;
   width: 100%;
   height: 100%;

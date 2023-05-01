@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import CartItem from "./CartItem";
-import EmptyCart from "./EmptyCart";
-import styles from "./cart.module.scss";
+import styles from "@/styles/cart/Cart.module.scss";
 
 function Cart() {
   const cartItem = useSelector((state) => state.shoppingCart.value);
@@ -22,24 +21,22 @@ function Cart() {
 
   return (
     <>
-      <div className={styles["full-cart-div"]}>
-        <div className={styles["full-cart"]}>
+      <div className={styles["cart-container"]}>
+        <div className={styles["cart-content-container"]}>
           {cartItem.length > 0 &&
             cartItem.map((item, id) => <CartItem key={id} item={item} />)}
         </div>
       </div>
-      {cartItem.length == 0 && <EmptyCart />}
-      {cartItem.length > 0 && (
-        <div className={styles["subtotal-div"]}>
-          <div className={styles["sub-right"]}>
-            <p>Subtotal</p>
-            <p className="total-price">{totalPrice + ".00$"}</p>
-          </div>
-          <div className={styles["sub-left"]}>
-            <Link>Go to Checkout</Link>
-          </div>
+
+      <div className={styles["subtotal-container"]}>
+        <div className={styles["sub-right"]}>
+          <p>Subtotal</p>
+          <p className="total-price">{totalPrice + ".00$"}</p>
         </div>
-      )}
+        <div className={styles["sub-left"]}>
+          <Link>Go to Checkout</Link>
+        </div>
+      </div>
     </>
   );
 }

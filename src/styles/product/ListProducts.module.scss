@@ -5,17 +5,16 @@ a {
   color: black;
 }
 
-.featured-container {
-  padding: 11rem 0;
+.product-container {
 }
 
 .title {
   font-size: 2.6rem;
   font-weight: 600;
-  margin-bottom: 4.2rem !important;
+  margin-bottom: 2rem !important;
 }
 
-.products-grid {
+.products-content-container {
   display: flex;
   flex-flow: row wrap;
   height: auto;
@@ -25,27 +24,35 @@ a {
 }
 
 @include respond(extraSmall) {
-  .products-grid {
-    justify-content: center;
+  .title {
+    font-size: 1.8rem;
   }
 }
 /* Extra small devices (phones, 600px and down) */
 @include respond(small) {
-  .products-grid {
+  .title {
+    font-size: 1.9rem;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @include respond(medium) {
-  .products-grid {
+  .title {
+    font-size: 2rem;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @include respond(large) {
+  .title {
+    font-size: 2.1rem;
+  }
 }
 
 @include respond(extraLarge) {
+  .title {
+    font-size: 2.4rem;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

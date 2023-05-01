@@ -2,35 +2,29 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-import { items } from "../../AllData";
-import styles from "./productItem.module.scss";
-import Placeholder from "/img/placeholder/loadingImage.svg";
-import MyLoader from "../ContentLoader";
+import styles from "@/styles/product/ProductItem.module.scss";
+import PlaceholderImg from "/img/placeholder/loadingImage.svg";
 
-function ProductItem() {
-  const filteredItems = items.filter((item) => item.id <= 8);
-
+function ProductItem({ item }) {
   return (
     <>
-      {filteredItems.map((item) => (
-        <div key={item.id} className={`${styles["product"]}`}>
-          <Link to={`/categories/product/${item.id}`}>
-            <div className={styles["product-header"]}>
-              <LazyLoadImage
-                className={styles["img-container"]}
-                placeholderSrc={Placeholder}
-                src={item.img}
-              />
-            </div>
-            <div className={styles["product-details"]}>
-              <p>{item.description}</p>
-              <p className={styles["item-price"]}>
-                <strong>{item.price}$</strong>
-              </p>
-            </div>
-          </Link>
-        </div>
-      ))}
+      <div className={`${styles["product"]}`}>
+        <Link to={`/categories/product/${item.id}`}>
+          <div className={styles["product-header"]}>
+            <LazyLoadImage
+              className={styles["img-container"]}
+              placeholderSrc={PlaceholderImg}
+              src={item.img}
+            />
+          </div>
+          <div className={styles["product-details"]}>
+            <p>{item.description}</p>
+            <p className={styles["item-price"]}>
+              <strong>{item.price}$</strong>
+            </p>
+          </div>
+        </Link>
+      </div>
     </>
   );
 }
