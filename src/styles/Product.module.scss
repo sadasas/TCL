@@ -1,0 +1,256 @@
+@use "@/variables" as *;
+
+.product-container {
+  margin-top: 120px;
+  margin-bottom: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 60px;
+}
+
+.product-content-container {
+  display: flex;
+  position: relative;
+  & > * {
+    flex: 1 1 0;
+  }
+}
+.product-left {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.primary-img {
+  width: 90%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  background-color: #e5e5e549;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.secondary-imgs {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  img {
+    background-color: #e5e5e549;
+    aspect-ratio: 4/4;
+    width: 75px;
+    height: 100px;
+    object-fit: contain;
+    cursor: pointer;
+    &:hover {
+      outline: 1px solid rgba(0, 0, 0, 0.3);
+
+      -webkit-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.18);
+      -moz-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.18);
+      box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.18);
+    }
+  }
+}
+
+.secondary-img-active {
+  border: 2px solid black;
+}
+.product-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 10px;
+}
+
+.product-title {
+  text-align: left;
+  font-size: 2.5rem;
+}
+.product-title-mobile {
+  text-align: center;
+  font-size: 2rem;
+  display: none;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+  font-size: 1.5rem;
+
+  & > * {
+    cursor: pointer;
+  }
+}
+.quantity-btn-container {
+  display: flex;
+  justify-content: center;
+}
+.quantity-btn {
+  width: fit-content;
+  display: flex;
+  gap: 5px;
+  padding: 5px 10px;
+  border: 2px solid black;
+  justify-content: space-around;
+  align-items: center;
+
+  h2 {
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+  }
+  p {
+    width: 50px;
+    text-align: center;
+  }
+}
+
+.chart-btn {
+  background-color: transparent;
+  border: 2px solid black;
+  padding: 5px 10px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
+.buy-btn {
+  background-color: #b6002c;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bolder;
+  border: 2px solid #b6002c;
+  text-transform: uppercase;
+  &:hover {
+    background-color: transparent;
+    color: #b6002c;
+  }
+}
+.product-detail {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  background-color: #e5e5e5;
+  padding: 15px;
+}
+
+@include respond(extraSmall) {
+  .product-content-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .primary-img {
+    width: 90%;
+    height: 300px;
+  }
+
+  .secondary-imgs {
+    img {
+      width: 40px;
+      height: 55px;
+    }
+  }
+  .product-title {
+    display: none;
+  }
+  .product-title-mobile {
+    display: block;
+  }
+  .btns {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .quantity-btn-container {
+    flex: 1 1 100%;
+  }
+  .buy-btn,
+  .chart-btn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@include respond(small) {
+  .product-content-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .product-title {
+    display: none;
+  }
+  .product-title-mobile {
+    display: block;
+  }
+  .btns {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  .quantity-btn-container {
+    flex: 1 1 100%;
+  }
+  .buy-btn,
+  .chart-btn {
+    font-size: 1.3rem;
+    padding: 13px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@include respond(medium) {
+  .product-content-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .product-title {
+    display: none;
+  }
+  .product-title-mobile {
+    display: block;
+  }
+  .btns {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  .quantity-btn-container {
+    flex: 1 1 100%;
+  }
+  .buy-btn,
+  .chart-btn {
+    padding: 14px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@include respond(large) {
+  .product-title {
+    font-size: 2rem;
+  }
+  .btns {
+    gap: 10px;
+    font-size: 1.3rem;
+  }
+  .product-detail {
+    padding: 25px;
+  }
+}
+
+@include respond(extraLarge) {
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@include respond(wide) {
+}

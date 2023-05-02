@@ -5,12 +5,12 @@ import React from "react";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
 import All from "./components/categories/All";
-import ProductPage from "./pages/ProductPage";
 import CategoriesItemChairs from "./components/categories/CategoriesItemChairs";
 import CategoriesItemTables from "./components/categories/CategoriesItemTables";
 import CategoriesItemLamp from "./components/categories/CategoriesItemLamps";
 import CategoriesItemCupboards from "./components/categories/CategoriesItemCupboards";
 import { ScrollToTop } from "./components/scrollToTop";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
             <Route path="chairs" element={<CategoriesItemChairs />} />
             <Route path="cupboards" element={<CategoriesItemCupboards />} />
           </Route>
-          <Route path="categories/product/:id" element={<ProductPage />} />
+          <Route path="categories/product/:id" element={<Product />} />
         </Routes>
       </ScrollToTop>
     </>

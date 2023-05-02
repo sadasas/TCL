@@ -3,15 +3,14 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 
-import { items } from "../AllData";
-
+import { items } from "@/AllData";
 import Footer from "../components/Footer";
 import { addItem } from "../features/shoppingChartSlice";
-import styles from "./productPage.module.scss";
+import styles from "@/styles/Product.module.scss";
 import Placeholder from "/img/placeholder/loadingImage.svg";
 import HigligthProduct from "../components/products/HigligthProduct";
 
-function ProductPage() {
+function Product() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [item, setItem] = useState(
@@ -47,10 +46,6 @@ function ProductPage() {
     }
   };
 
-  const calcPrice = (quantity) => {
-    return quantity * item[0].price;
-  };
-
   const [notify, setNotify] = useState(false);
 
   const showNotify = () => {
@@ -65,84 +60,76 @@ function ProductPage() {
 
   return (
     <>
-      <div
-        onAnimationEnd={() => setNotify(false)}
-        className={`${styles[notify]} ${notify ? styles["slide-in"] : null}`}
-      >
-        <p>Item has been added to the cart &nbsp; ✅</p>
-      </div>
-
-      <div className={styles["product-page-div"]}>
-        <div className="container">
-          <div className={styles["product-div"]}>
-            <h1 className={styles["product-big-name"]}>
+      <div className="container">
+        <div className={styles["product-container"]}>
+          <div className={styles["product-content-container"]}>
+            <h1 className={styles["product-title-mobile"]}>
               {item[0].description}
             </h1>
             <div className={styles["product-left"]}>
-              <div className={styles["big-img"]}>
+              <div className={styles["primary-img"]}>
                 <LazyLoadImage
                   placeholderSrc={Placeholder}
                   effect="blur"
                   src={image}
                 />
               </div>
-              <div className={styles["small-imgs"]}>
+              <div className={styles["secondary-imgs"]}>
                 <img
                   onMouseOver={changeImage}
                   src={item[0].img}
                   alt="product"
                 />
-                <img
-                  onMouseOver={changeImage}
-                  src={item[0].otherImgs[0]}
-                  alt="product"
-                />
-                <img
-                  onMouseOver={changeImage}
-                  src={item[0].otherImgs[1]}
-                  alt="product"
-                />
+                {item[0].otherImgs.length > 0 &&
+                  item[0].otherImgs.map((item, index) => (
+                    <img
+                      id={item}
+                      key={index}
+                      onMouseOver={changeImage}
+                      src={item}
+                      alt="product"
+                    />
+                  ))}
               </div>
             </div>
             <div className={styles["product-right"]}>
-              <p className={styles["product-spec"]}>{item[0].specs}</p>
-              <div className={styles["product-quant"]}>
-                <p>Quantity</p>
-                <div className={styles["product-btns"]}>
-                  <button onClick={decrease}>-</button>
-                  <p className={styles["quantity"]}>{quantity}</p>
-                  <button onClick={increase}>+</button>
+              <h1 className={styles["product-title"]}>{item[0].description}</h1>
+              <div className={styles.btns}>
+                <div className={styles["quantity-btn-container"]}>
+                  <div className={styles["quantity-btn"]}>
+                    <h3 onClick={decrease}>-</h3>
+                    <p className={styles.quantity}>{quantity}</p>
+                    <h3 onClick={increase}>+</h3>
+                  </div>
                 </div>
-                <p className={styles["product-price"]}>
-                  {calcPrice(quantity)}.00$
-                </p>
-              </div>
-              <div className={styles["atc-buy"]}>
+
                 <button
                   onClick={(e) => {
                     e.preventDefault();
                     addToCartHandler(item[0]);
                     showNotify();
                   }}
-                  className={styles["atc-btn"]}
+                  className={styles["chart-btn"]}
                 >
                   add to cart
                 </button>
                 <button className={styles["buy-btn"]}>buy now</button>
               </div>
+
+              <p className={styles["product-detail"]}>{item[0].specs}</p>
             </div>
           </div>
+          <HigligthProduct
+            logoUrl="/img/trending.svg"
+            title={"Trending Items"}
+            items={trendingProducts}
+            colorTitle="#146C94"
+          />
         </div>
-        <HigligthProduct
-          logoUrl="/img/trending.svg"
-          title={"Trending Items"}
-          items={trendingProducts}
-          colorTitle="#146C94"
-        />
       </div>
       <Footer />
     </>
   );
 }
 
-export default ProductPage;
+export default Product;
