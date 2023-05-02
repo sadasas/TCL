@@ -20,13 +20,13 @@ function MobileNav({ mobileNav, setMobileNav }) {
       </h2>
 
       <div className={styles["mobile-links"]}>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
+        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/sofa">
           categories
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamps">
+        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamp">
           lamps
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/chairs">
+        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/chair">
           chairs
         </Link>
       </div>
@@ -98,7 +98,7 @@ function Navbar() {
             <Link className={styles.logo} to="/">
               <h2>TCL</h2>
             </Link>
-            <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
+            <Link onClick={() => window.scrollTo(0, 0)} to="/categories/sofa">
               <h2>categories</h2>
             </Link>
           </div>

@@ -4,7 +4,7 @@ import styles from "./footer.module.scss";
 function Footer() {
   return (
     <>
-      <footer>
+      <section id="footer">
         <p className={styles.footer}>
           Design by
           <a
@@ -16,7 +16,7 @@ function Footer() {
             &nbsp; Wahyu SRP
           </a>
         </p>
-      </footer>
+      </section>
     </>
   );
 }

@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 
 import { items } from "@/AllData";
-import Footer from "../components/Footer";
 import { addItem } from "../features/shoppingChartSlice";
 import styles from "@/styles/Product.module.scss";
 import Placeholder from "/img/placeholder/loadingImage.svg";
@@ -127,7 +126,6 @@ function Product() {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

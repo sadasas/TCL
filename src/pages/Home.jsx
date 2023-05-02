@@ -3,7 +3,6 @@ import React from "react";
 import { items } from "@/AllData";
 import Banner from "@/components/Banner";
 import Featured from "@/components/Featured";
-import Footer from "@/components/Footer";
 import Banner1 from "@/assets/img/banner/banner1.jpg";
 import Banner2 from "@/assets/img/banner/banner2.jpg";
 import styles from "@/styles/Home.module.scss";
