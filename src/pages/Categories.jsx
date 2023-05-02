@@ -1,15 +1,17 @@
-import CategoriesHeader from "../components/categories/CategoriesHeader";
 import { Outlet } from "react-router";
 import React from "react";
-import styles from "./categories.module.scss";
-import Footer from "../components/Footer";
+
+import CategoriesHeader from "../components/categories/CategoriesHeader";
+import styles from "@/styles/Categories.module.scss";
+
 function Categories() {
   return (
-    <div className={styles.container}>
-      <CategoriesHeader />
-      <Outlet />
-      <Footer />
-    </div>
+    <section id="categories" className="container">
+      <div className={styles["categories-container"]}>
+        <CategoriesHeader />
+        <Outlet />
+      </div>
+    </section>
   );
 }
 

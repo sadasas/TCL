@@ -1,37 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useParams } from "react-router";
 
 import { items } from "../../AllData";
-import styles from "./categoriesItem.module.scss";
-import Placeholder from "/img/placeholder/loadingImage.svg";
+import styles from "@/styles/categories/CategoriesItem.module.scss";
+import ProductItem from "../products/ProductItem";
 
 function CategoriesItem() {
+  const { type } = useParams();
+  const categoryProducts = items.filter((item) => item.category === type);
   return (
-    <>
-      <div className={styles["category-container"]}>
-        <div className="container">
-          <div className={styles["products-grid"]}>
-            {items.map((item) => (
-              <div key={item.id} className={`${styles["product"]} ${"normal"}`}>
-                <Link to={`/categories/product/${item.id}`}>
-                  <div className={styles["product-header"]}>
-                    <LazyLoadImage
-                      placeholderSrc={Placeholder}
-                      src={item.img}
-                    />
-                  </div>
-                  <div className={styles["product-details"]}>
-                    <p>{item.description}</p>
-                    <p className={styles["item-price"]}>{item.price}$</p>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
+    <div className={styles["product-container"]}>
+      <div className={styles.title}>{type}</div>
+      <div className={styles["products-content-container"]}>
+        {categoryProducts.map((item) => (
+          <ProductItem key={item.id} item={item} />
+        ))}
       </div>
-    </>
+    </div>
   );
 }
 

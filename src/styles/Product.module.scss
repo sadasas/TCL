@@ -153,6 +153,13 @@
   .primary-img {
     width: 90%;
     height: 300px;
+    span {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: calc(100% / 2) !important;
+    }
   }
 
   .secondary-imgs {

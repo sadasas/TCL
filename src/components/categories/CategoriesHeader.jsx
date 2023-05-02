@@ -1,51 +1,80 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { TbSquareArrowRight, TbSquareArrowLeft } from "react-icons/tb";
+import detectElementOverflow from "detect-element-overflow";
 
-import styles from "./categoriesHeader.module.scss";
+import sofa from "@/assets/img/categories/sofa.png";
+import table from "@/assets/img/categories/table.png";
+import chair from "@/assets/img/categories/chair.png";
+import lamp from "@/assets/img/categories/lamp.png";
+import cupboard from "@/assets/img/categories/cupboard.png";
+import styles from "@/styles/categories/CategoriesHeader.module.scss";
+
+function Box({ category, imgURL, innerRef }) {
+  return (
+    <Link ref={innerRef} className={styles.box} to={category}>
+      <div className={styles["img-container"]}>
+        <img src={imgURL} />
+      </div>
+      <h6>{category}</h6>
+    </Link>
+  );
+}
 
 function CategoriesHeader() {
-  const [btnName, setBtnName] = useState("All");
+  const lastCategory = useRef(null);
+  const slider = useRef(null);
 
-  const handleBtnName = (e) => {
-    setBtnName(e);
+  const [isSliderOvervlow, setIsSliderOvervlow] = useState(false);
+
+  const slideLeft = () => {
+    let slider = document.getElementById(`slider-category`);
+    slider.scrollLeft = slider.scrollLeft - 400 - 10;
   };
 
-  return (
-    <>
-      <div className="container">
-        <div className={styles["catego-header"]}>
-          <div className={styles["title-home"]}>
-            <Link onClick={() => window.scrollTo(0, 0)} to="/">
-              <i className="fa-solid fa-angle-left"></i> Home
-            </Link>
-            <h3>{btnName}</h3>
-          </div>
-          <div className={styles["filter-btns"]}>
-            <Link to="all" onClick={() => handleBtnName("all")}>
-              <button>All</button>
-            </Link>
-            <Link to="sofa">
-              <button onClick={() => handleBtnName("furnitures")}>Sofa</button>
-            </Link>
-            <Link to="tables">
-              <button onClick={() => handleBtnName("tables")}>Tables</button>
-            </Link>
-            <Link to="lamps">
-              <button onClick={() => handleBtnName("lamps")}>Lamps</button>
-            </Link>
+  const slideRight = () => {
+    let slider = document.getElementById(`slider-category`);
+    slider.scrollLeft = slider.scrollLeft + 400 + 10;
+  };
 
-            <Link to="chairs">
-              <button onClick={() => handleBtnName("chairs")}>Chairs</button>
-            </Link>
-            <Link to="cupboards">
-              <button onClick={() => handleBtnName("cupboard")}>
-                CupBoards
-              </button>
-            </Link>
-          </div>
+  useEffect(() => {
+    if (lastCategory.current && slider.current) {
+      const collision = detectElementOverflow(
+        lastCategory.current,
+        slider.current
+      );
+      setIsSliderOvervlow(collision.collidedRight);
+    }
+  }, [lastCategory]);
+
+  return (
+    <div className={styles["categories-header-container"]}>
+      <div className={styles["slider-wrapper"]}>
+        <div
+          ref={slider}
+          id="slider-category"
+          className={styles["filter-btns"]}
+        >
+          <Box category="sofa" imgURL={sofa} />
+          <Box category="table" imgURL={table} />
+          <Box category="lamp" imgURL={lamp} />
+          <Box category="chair" imgURL={chair} />
+          <Box innerRef={lastCategory} category="cupboard" imgURL={cupboard} />
         </div>
+        <TbSquareArrowLeft
+          onClick={slideLeft}
+          className={`${styles.navigation} ${styles.left} ${
+            isSliderOvervlow ? styles["navigation-active"] : null
+          }`}
+        />
+        <TbSquareArrowRight
+          onClick={slideRight}
+          className={`${styles.navigation} ${styles.right} ${
+            isSliderOvervlow ? styles["navigation-active"] : null
+          } `}
+        />
       </div>
-    </>
+    </div>
   );
 }
 

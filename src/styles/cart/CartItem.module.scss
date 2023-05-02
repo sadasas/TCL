@@ -51,6 +51,11 @@
 
 .cart-name {
   font-size: 1.2rem;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
 }
 
 .cart-right {

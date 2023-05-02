@@ -1,0 +1,19 @@
+.products-content-container {
+  display: flex;
+  flex-flow: row wrap;
+  height: auto;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}

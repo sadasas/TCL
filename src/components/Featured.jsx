@@ -27,7 +27,7 @@ function Featured() {
             </Link>
           </div>
           <div className={`${styles["featured"]} ${styles["grid-two"]}`}>
-            <Link to="categories/lamps">
+            <Link to="categories/lamp">
               <div id="img2" className={styles["overlay"]}></div>
 
               <LazyLoadImage
@@ -39,7 +39,7 @@ function Featured() {
             </Link>
           </div>
           <div className={`${styles["featured"]} ${styles["grid-four"]}`}>
-            <Link to="categories/tables">
+            <Link to="categories/table">
               <div id="img3" className={styles["overlay"]}></div>
 
               <LazyLoadImage
@@ -51,7 +51,7 @@ function Featured() {
             </Link>
           </div>
           <div className={`${styles["featured"]} ${styles["grid-four-low"]}`}>
-            <Link to="categories/chairs">
+            <Link to="categories/chair">
               <div id="img4" className={styles["overlay"]}></div>
 
               <LazyLoadImage

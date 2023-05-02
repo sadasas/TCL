@@ -46,7 +46,6 @@ function Home() {
           justify="right"
         />
         <ListProduct items={chairProducts} title="Chairs" />
-        <Footer />
       </main>
     </>
   );
