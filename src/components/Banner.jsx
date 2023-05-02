@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import styles from "@/styles/Banner.module.scss";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
-function Banner({ title, text, img, justify }) {
+function Banner({ title, text, img, justify, scrollPosition }) {
   return (
     <div className="container">
       <div
@@ -26,11 +30,15 @@ function Banner({ title, text, img, justify }) {
           </div>
         </div>
         <div className={styles["right-container"]}>
-          <img src={img} alt="banner" />
+          <LazyLoadImage
+            scrollPosition={scrollPosition}
+            src={img}
+            alt="banner"
+          />
         </div>
       </div>
     </div>
   );
 }
 
-export default Banner;
+export default trackWindowScroll(Banner);

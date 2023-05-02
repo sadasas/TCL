@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  LazyLoadComponent,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 
 import { items } from "@/AllData";
 import Banner from "@/components/Banner";
@@ -8,8 +12,12 @@ import Banner2 from "@/assets/img/banner/banner2.jpg";
 import styles from "@/styles/Home.module.scss";
 import ListProduct from "../components/products/ListProduct";
 import HigligthProduct from "../components/products/HigligthProduct";
+import FeaturedLoader from "../components/contentLoader/FeaturedLoader";
+import ListLoader from "../components/contentLoader/ListLoader";
+import BannerLoader from "../components/contentLoader/BannerLoader";
+import HighligthLLoader from "../components/contentLoader/HighligthLoader";
 
-function Home() {
+function Home({ scrollPosition }) {
   //TODO: Use  mongodb , nott like thiss dudeeeeeee
   const featuredProducts = items.filter((item) => item.id <= 8);
   const trendingProducts = items.filter((item) => item.id > 8);
@@ -18,36 +26,71 @@ function Home() {
   return (
     <>
       <main className={styles["home-container"]}>
-        <Featured />
-        <ListProduct items={featuredProducts} title="Featured Product" />
-        <Banner
-          title="Elegant harmonious living"
-          text=" All products are handmade by professional craftsmen."
-          img={Banner1}
-          justify="left"
-        />
-        <HigligthProduct
-          logoUrl="/img/trending.svg"
-          title={"Trending Items"}
-          items={trendingProducts}
-          colorTitle="#146C94"
-        />
-        <HigligthProduct
-          logoUrl="/img/trending.svg"
-          title={"Discount Items"}
-          items={discountProducts}
-          colorTitle="#E06469"
-        />
-        <Banner
-          title="The furniture that defines you"
-          text=" All products are handmade by professional craftsmen."
-          img={Banner2}
-          justify="right"
-        />
-        <ListProduct items={chairProducts} title="Chairs" />
+        <LazyLoadComponent
+          scrollPosition={scrollPosition}
+          placeholder={<FeaturedLoader />}
+        >
+          <Featured />
+        </LazyLoadComponent>
+        <LazyLoadComponent
+          scrollPosition={scrollPosition}
+          placeholder={<ListLoader />}
+        >
+          <ListProduct items={featuredProducts} title="Featured Product" />
+        </LazyLoadComponent>
+        <LazyLoadComponent
+          scrollPosition={scrollPosition}
+          placeholder={<BannerLoader />}
+        >
+          <Banner
+            title="Elegant harmonious living"
+            text=" All products are handmade by professional craftsmen."
+            img={Banner1}
+            justify="left"
+          />
+        </LazyLoadComponent>
+        <LazyLoadComponent
+          scrollPosition={scrollPosition}
+          placeholder={<HighligthLLoader />}
+        >
+          <HigligthProduct
+            logoUrl="/img/trending.svg"
+            title={"Trending Items"}
+            items={trendingProducts}
+            colorTitle="#146C94"
+          />
+        </LazyLoadComponent>
+        <LazyLoadComponent
+          scrollPosition={scrollPosition}
+          placeholder={<HighligthLLoader />}
+        >
+          <HigligthProduct
+            logoUrl="/img/trending.svg"
+            title={"Discount Items"}
+            items={discountProducts}
+            colorTitle="#E06469"
+          />
+        </LazyLoadComponent>
+        <LazyLoadComponent
+          scrollPosition={scrollPosition}
+          placeholder={<BannerLoader />}
+        >
+          <Banner
+            title="The furniture that defines you"
+            text=" All products are handmade by professional craftsmen."
+            img={Banner2}
+            justify="right"
+          />
+        </LazyLoadComponent>
+        <LazyLoadComponent
+          scrollPosition={scrollPosition}
+          placeholder={<ListLoader />}
+        >
+          <ListProduct items={chairProducts} title="Chairs" />
+        </LazyLoadComponent>
       </main>
     </>
   );
 }
 
-export default Home;
+export default trackWindowScroll(Home);
