@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import styles from "@/styles/Navbar.module.scss";
+import DotLoader from "../contentLoader/DotLoader";
 const MobileNav = lazy(() => import("./MobileNav"));
 const EmptyCart = lazy(() => import("../carts/EmptyCart"));
 const Cart = lazy(() => import("../carts/Cart"));
@@ -58,19 +59,17 @@ function Navbar() {
           onClick={openCart}
         />
         <div className={styles["cart-content-container"]}>
-          {cartItem.length < 1 ? (
-            <Suspense fallback={<div></div>}>
-              <LazyLoadComponent>
+          <Suspense fallback={<DotLoader />}>
+            {cartItem.length < 1 ? (
+              <LazyLoadComponent placeholder={<DotLoader />}>
                 <EmptyCart openCart={openCart} />
               </LazyLoadComponent>
-            </Suspense>
-          ) : (
-            <Suspense fallback={<div></div>}>
-              <LazyLoadComponent>
+            ) : (
+              <LazyLoadComponent placeholder={<DotLoader />}>
                 <Cart />
               </LazyLoadComponent>
-            </Suspense>
-          )}
+            )}
+          </Suspense>
         </div>
       </div>
 

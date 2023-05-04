@@ -6,14 +6,14 @@ const BannerLoader = (props) => (
   <ContentLoader
     className={styles.container}
     width={800}
-    height={575}
-    viewBox="0 0 800 575"
+    height={220}
+    viewBox="0 0 800 220"
     backgroundColor="#EEEEEE"
     foregroundColor="#ffffff"
     {...props}
   >
-    <rect x="12" y="58" rx="2" ry="2" width="380" height="211" />
-    <rect x="400" y="57" rx="2" ry="2" width="380" height="211" />
+    <rect x="12" y="0" rx="2" ry="2" width="380" height="211" />
+    <rect x="400" y="0" rx="2" ry="2" width="380" height="211" />
   </ContentLoader>
 );
 
