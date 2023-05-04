@@ -14,7 +14,7 @@ import sofa4 from "@/assets/img/products/sofa/sofa-type4.png";
 import lamp3 from "@/assets/img/products/lamps/lamp-type3.png";
 import lamp4 from "@/assets/img/products/lamps/lamp-type4.png";
 import table1 from "@/assets/img/products/table/table-type1.png";
-import table2 from "@/assets/img/products/table/table-type2.png";
+import table2 from "@/assets/img/products/table/table-type2.jpg";
 import table3 from "@/assets/img/products/table/table-type3.png";
 
 export const items = [
