@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy } from "react";
 import { useSelector } from "react-redux";
 
-import CartItem from "./CartItem";
 import styles from "@/styles/cart/Cart.module.scss";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
+import CartLoader from "../contentLoader/CartLoader";
+const CartItem = lazy(() => import("./CartItem"));
 
 function Cart() {
   const cartItem = useSelector((state) => state.shoppingCart.value);
@@ -24,7 +26,11 @@ function Cart() {
       <div className={styles["cart-container"]}>
         <div className={styles["cart-content-container"]}>
           {cartItem.length > 0 &&
-            cartItem.map((item, id) => <CartItem key={id} item={item} />)}
+            cartItem.map((item, id) => (
+              <LazyLoadComponent placeholder={<CartLoader />} key={id}>
+                <CartItem item={item} />
+              </LazyLoadComponent>
+            ))}
         </div>
       </div>
 

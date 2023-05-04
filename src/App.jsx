@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import React from "react";
 
-import Navbar from "./components/Navbar";
 import { ScrollToTop } from "./components/scrollToTop";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
 import Product from "./pages/Product";
 import CategoriesItem from "./components/categories/CategoriesItem";
 import Footer from "./components/Footer";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (

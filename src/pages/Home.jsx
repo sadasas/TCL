@@ -1,21 +1,23 @@
-import React from "react";
+import React, { lazy } from "react";
 import {
   LazyLoadComponent,
   trackWindowScroll,
 } from "react-lazy-load-image-component";
 
 import { items } from "@/AllData";
-import Banner from "@/components/Banner";
-import Featured from "@/components/Featured";
 import Banner1 from "@/assets/img/banner/banner1.jpg";
 import Banner2 from "@/assets/img/banner/banner2.jpg";
 import styles from "@/styles/Home.module.scss";
-import ListProduct from "../components/products/ListProduct";
-import HigligthProduct from "../components/products/HigligthProduct";
 import FeaturedLoader from "../components/contentLoader/FeaturedLoader";
 import ListLoader from "../components/contentLoader/ListLoader";
 import BannerLoader from "../components/contentLoader/BannerLoader";
 import HighligthLLoader from "../components/contentLoader/HighligthLoader";
+const ListProduct = lazy(() => import("../components/products/ListProduct"));
+const HigligthProduct = lazy(() =>
+  import("../components/products/HigligthProduct")
+);
+const Banner = lazy(() => import("@/components/Banner"));
+const Featured = lazy(() => import("@/components/Featured"));
 
 function Home({ scrollPosition }) {
   //TODO: Use  mongodb , nott like thiss dudeeeeeee

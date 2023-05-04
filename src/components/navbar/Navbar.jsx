@@ -1,38 +1,14 @@
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 import styles from "@/styles/Navbar.module.scss";
-import EmptyCart from "./carts/EmptyCart";
-import Cart from "./carts/Cart";
-
-function MobileNav({ mobileNav, setMobileNav }) {
-  return (
-    <div
-      className={`${styles["mobile-nav-full"]} ${
-        mobileNav ? styles["open-flex"] : styles["closed-flex"]
-      }`}
-    >
-      <h2 className={styles["close-btn"]}>
-        <AiOutlineClose onClick={() => setMobileNav(!mobileNav)} />
-      </h2>
-
-      <div className={styles["mobile-links"]}>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/sofa">
-          categories
-        </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamp">
-          lamps
-        </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/chair">
-          chairs
-        </Link>
-      </div>
-    </div>
-  );
-}
+const MobileNav = lazy(() => import("./MobileNav"));
+const EmptyCart = lazy(() => import("../carts/EmptyCart"));
+const Cart = lazy(() => import("../carts/Cart"));
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
@@ -59,9 +35,10 @@ function Navbar() {
 
   return (
     <>
-      {/* mobile nav */}
-      <MobileNav mobileNav={mobileNav} setMobileNav={setMobileNav} />
-      {/* overlay */}
+      <LazyLoadComponent>
+        <MobileNav mobileNav={mobileNav} setMobileNav={setMobileNav} />
+      </LazyLoadComponent>
+
       <div
         onClick={openCart}
         className={`${styles["page-overlay"]} ${
@@ -69,7 +46,6 @@ function Navbar() {
         }`}
       ></div>
 
-      {/* cart */}
       <div
         className={`${styles["cart-container"]} ${
           cart ? styles["open-cart"] : styles["closed-cart"]
@@ -82,7 +58,19 @@ function Navbar() {
           onClick={openCart}
         />
         <div className={styles["cart-content-container"]}>
-          {cartItem.length < 1 ? <EmptyCart openCart={openCart} /> : <Cart />}
+          {cartItem.length < 1 ? (
+            <Suspense fallback={<div></div>}>
+              <LazyLoadComponent>
+                <EmptyCart openCart={openCart} />
+              </LazyLoadComponent>
+            </Suspense>
+          ) : (
+            <Suspense fallback={<div></div>}>
+              <LazyLoadComponent>
+                <Cart />
+              </LazyLoadComponent>
+            </Suspense>
+          )}
         </div>
       </div>
 

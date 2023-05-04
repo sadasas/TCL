@@ -5,19 +5,17 @@ import styles from "@/styles/ContentLoader.module.scss";
 const FeaturedLoader = (props) => (
   <ContentLoader
     className={styles.container}
-    width={700}
-    height={575}
-    viewBox="0 0 700 575"
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
+    width={800}
+    height={420}
+    viewBox="0 0 800 420"
+    backgroundColor="#EEEEEE"
+    foregroundColor="#ffffff"
     {...props}
   >
-    <rect x="12" y="58" rx="2" ry="2" width="211" height="211" />
-    <rect x="240" y="57" rx="2" ry="2" width="211" height="211" />
-    <rect x="467" y="56" rx="2" ry="2" width="211" height="211" />
-    <rect x="12" y="283" rx="2" ry="2" width="211" height="211" />
-    <rect x="240" y="281" rx="2" ry="2" width="211" height="211" />
-    <rect x="468" y="279" rx="2" ry="2" width="211" height="211" />
+    <rect x="12" y="5" rx="2" ry="2" width="311" height="400" />
+    <rect x="340" y="5" rx="2" ry="2" width="211" height="190" />
+    <rect x="567" y="5" rx="2" ry="2" width="211" height="400" />
+    <rect x="340" y="220" rx="2" ry="2" width="211" height="190" />
   </ContentLoader>
 );
 

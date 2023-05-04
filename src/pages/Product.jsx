@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import React, { useState, useEffect, lazy } from "react";
+import {
+  LazyLoadImage,
+  LazyLoadComponent,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 import { useParams } from "react-router";
 import { useDispatch } from "react-redux";
 
@@ -7,9 +11,12 @@ import { items } from "@/AllData";
 import { addItem } from "../features/shoppingChartSlice";
 import styles from "@/styles/Product.module.scss";
 import Placeholder from "/img/placeholder/loadingImage.svg";
-import HigligthProduct from "../components/products/HigligthProduct";
+import HighligthLLoader from "../components/contentLoader/HighligthLoader";
+const HigligthProduct = lazy(() =>
+  import("../components/products/HigligthProduct")
+);
 
-function Product() {
+function Product({ scrollPosition }) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [item, setItem] = useState(
@@ -118,16 +125,21 @@ function Product() {
               <p className={styles["product-detail"]}>{item[0].specs}</p>
             </div>
           </div>
-          <HigligthProduct
-            logoUrl="/img/trending.svg"
-            title={"Trending Items"}
-            items={trendingProducts}
-            colorTitle="#146C94"
-          />
+          <LazyLoadComponent
+            scrollPosition={scrollPosition}
+            placeholder={<HighligthLLoader />}
+          >
+            <HigligthProduct
+              logoUrl="/img/trending.svg"
+              title={"Trending Items"}
+              items={trendingProducts}
+              colorTitle="#146C94"
+            />
+          </LazyLoadComponent>
         </div>
       </div>
     </>
   );
 }
 
-export default Product;
+export default trackWindowScroll(Product);
