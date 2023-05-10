@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 
 import styles from "@/styles/Banner.module.scss";
 import {
@@ -24,7 +24,7 @@ function Banner({ title, text, img, justify, scrollPosition }) {
           <div className={styles["text-container"]}>
             <h2>{title}</h2>
             <p>{text}</p>
-            <Link onClick={() => window.scrollTo(0, 0)} to="categories/all">
+            <Link href="category/sofa">
               <button>Shop now</button>
             </Link>
           </div>

@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+
 import { AiOutlineClose } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+
 import styles from "@/styles/Navbar.module.scss";
 
 function MobileNav({ mobileNav, setMobileNav }) {
@@ -15,13 +17,13 @@ function MobileNav({ mobileNav, setMobileNav }) {
       </h2>
 
       <div className={styles["mobile-links"]}>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/sofa">
+        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/sofa">
           categories
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamp">
+        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/lamp">
           lamps
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/chair">
+        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/chair">
           chairs
         </Link>
       </div>

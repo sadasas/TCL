@@ -1,8 +1,7 @@
-import React from "react";
 import ContentLoader from "react-content-loader";
 import styles from "@/styles/ContentLoader.module.scss";
 
-const CartLoader = (props) => (
+const CartLoader = () => (
   <ContentLoader
     className={styles.container}
     width={700}
@@ -10,7 +9,6 @@ const CartLoader = (props) => (
     viewBox="0 0 700 300"
     backgroundColor="#EEEEEE"
     foregroundColor="#ffffff"
-    {...props}
   >
     <rect x="4" y="8" rx="3" ry="3" width="7" height="288" />
     <rect x="6" y="289" rx="3" ry="3" width="669" height="8" />

@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { BsArrowUpRightSquare } from "react-icons/bs";
 import { TbSquareArrowRight, TbSquareArrowLeft } from "react-icons/tb";
 

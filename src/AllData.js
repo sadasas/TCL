@@ -1,21 +1,21 @@
-import chair1 from "@/assets/img/products/chairs/chair-type1.png";
-import sofa1 from "@/assets/img/products/sofa/sofa-type1.png";
-import lamp1 from "@/assets/img/products/lamps/lamp-type1.png";
-import cupboard1 from "@/assets/img/products/cupboards/cupboard-type1.png";
-import cupboard2 from "@/assets/img/products/cupboards/cupboard-type2.png";
-import cupboard3 from "@/assets/img/products/cupboards/cupboard-type3.png";
-import lamp2 from "@/assets/img/products/lamps/lamp-type2.png";
-import sofa2 from "@/assets/img/products/sofa/sofa-type2.png";
-import chair2 from "@/assets/img/products/chairs/chair-type2.png";
-import chair3 from "@/assets/img/products/chairs/chair-type3.png";
-import chair4 from "@/assets/img/products/chairs/chair-type4.png";
-import sofa3 from "@/assets/img/products/sofa/sofa-type3.png";
-import sofa4 from "@/assets/img/products/sofa/sofa-type4.png";
-import lamp3 from "@/assets/img/products/lamps/lamp-type3.png";
-import lamp4 from "@/assets/img/products/lamps/lamp-type4.png";
-import table1 from "@/assets/img/products/table/table-type1.png";
-import table2 from "@/assets/img/products/table/table-type2.jpg";
-import table3 from "@/assets/img/products/table/table-type3.png";
+const chair1 = "/img/products/chairs/chair-type1.png";
+const sofa1 = "/img/products/sofa/sofa-type1.png";
+const lamp1 = "/img/products/lamps/lamp-type1.png";
+const cupboard1 = "/img/products/cupboards/cupboard-type1.png";
+const cupboard2 = "/img/products/cupboards/cupboard-type2.png";
+const cupboard3 = "/img/products/cupboards/cupboard-type3.png";
+const lamp2 = "/img/products/lamps/lamp-type2.png";
+const sofa2 = "/img/products/sofa/sofa-type2.png";
+const chair2 = "/img/products/chairs/chair-type2.png";
+const chair3 = "/img/products/chairs/chair-type3.png";
+const chair4 = "/img/products/chairs/chair-type4.png";
+const sofa3 = "/img/products/sofa/sofa-type3.png";
+const sofa4 = "/img/products/sofa/sofa-type4.png";
+const lamp3 = "/img/products/lamps/lamp-type3.png";
+const lamp4 = "/img/products/lamps/lamp-type4.png";
+const table1 = "/img/products/table/table-type1.png";
+const table2 = "/img/products/table/table-type2.jpg";
+const table3 = "/img/products/table/table-type3.png";
 
 export const items = [
   {
@@ -38,7 +38,7 @@ export const items = [
     price: 90,
     otherImgs: [sofa2, sofa4],
     specs:
-      "For those of you who are looking for a minimalist sofa bed that is stylish and comfortable, the Heim Studio Nobu Sofa Bed can be the right choice. This best sofa bed product is a minimalist type of sofa bed from a well-known brand, namely Heim Studio. This type of sofa product is a click clack sofa bed that makes it easy for you to change its function from a sofa to a bed easily.",
+      "For those of you who are looking for a minimalist sofa bed that is stylish and comfortable, the Heim Studio Nobu Sofa Bed can be the right choice. This best sofa bed product is a minimalist type of sofa bed = a well-known brand, namely Heim Studio. This type of sofa product is a click clack sofa bed that makes it easy for you to change its function = a sofa to a bed easily.",
   },
   {
     id: 3,
@@ -193,7 +193,7 @@ export const items = [
     price: 120,
     otherImgs: [table1, table3],
     specs:
-      "Corner Study Table with Cabinet Doing work from home or doing schoolwork does feel more comfortable if you use a study table and a minimalist desk. This is because work or school assignments will feel more effective and efficient with a minimalist desk.",
+      "Corner Study Table with Cabinet Doing work = home or doing schoolwork does feel more comfortable if you use a study table and a minimalist desk. This is because work or school assignments will feel more effective and efficient with a minimalist desk.",
   },
   {
     id: 17,

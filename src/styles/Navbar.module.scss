@@ -1,4 +1,4 @@
-@use "@/variables" as *;
+@use "variables" as *;
 
 .container {
   -webkit-box-shadow: 0px 4px 5px -5px rgba(0, 0, 0, 0.23);
@@ -205,9 +205,9 @@
 .cart-content-container {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   height: 100vh;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .closed-cart {

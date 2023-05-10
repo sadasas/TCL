@@ -1,15 +1,19 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+"use client";
+
+import { useState, useEffect, lazy, Suspense } from "react";
 import { AiOutlineShoppingCart, AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useSelector } from "react-redux";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
+import dynamic from "next/dynamic";
+import EmptyCart from "../carts/EmptyCart";
 
 import styles from "@/styles/Navbar.module.scss";
-import DotLoader from "../contentLoader/DotLoader";
-const MobileNav = lazy(() => import("./MobileNav"));
-const EmptyCart = lazy(() => import("../carts/EmptyCart"));
-const Cart = lazy(() => import("../carts/Cart"));
+import CartLoader from "../contentLoader/CartLoader";
+const MobileNav = dynamic(() => import("./MobileNav"));
+const Cart = dynamic(() => import("../carts/Cart"), {
+  loading: () => <CartLoader />,
+});
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
@@ -36,9 +40,7 @@ function Navbar() {
 
   return (
     <>
-      <LazyLoadComponent>
-        <MobileNav mobileNav={mobileNav} setMobileNav={setMobileNav} />
-      </LazyLoadComponent>
+      <MobileNav mobileNav={mobileNav} setMobileNav={setMobileNav} />
 
       <div
         onClick={openCart}
@@ -59,17 +61,7 @@ function Navbar() {
           onClick={openCart}
         />
         <div className={styles["cart-content-container"]}>
-          <Suspense fallback={<DotLoader />}>
-            {cartItem.length < 1 ? (
-              <LazyLoadComponent placeholder={<DotLoader />}>
-                <EmptyCart openCart={openCart} />
-              </LazyLoadComponent>
-            ) : (
-              <LazyLoadComponent placeholder={<DotLoader />}>
-                <Cart />
-              </LazyLoadComponent>
-            )}
-          </Suspense>
+          {cartItem.length < 1 ? <EmptyCart openCart={openCart} /> : <Cart />}
         </div>
       </div>
 
@@ -82,10 +74,10 @@ function Navbar() {
           <div
             className={`${styles["nav-content-container"]} ${styles["nav-links"]}`}
           >
-            <Link className={styles.logo} to="/">
+            <Link className={styles.logo} href="/">
               <h2>TCL</h2>
             </Link>
-            <Link onClick={() => window.scrollTo(0, 0)} to="/categories/sofa">
+            <Link href="/category/sofa">
               <h2>categories</h2>
             </Link>
           </div>

@@ -1,4 +1,4 @@
-@use "@/variables" as *;
+@use "../variables" as *;
 
 .higlight-container {
   display: flex;
@@ -47,7 +47,6 @@
   display: flex;
   gap: 20px;
   overflow-x: scroll;
-
   & > * {
     flex: 0 0 auto;
   }

@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
-import React, { useEffect, useState, lazy } from "react";
+"use client";
+import Link from "next/link";
+import { useEffect, useState, lazy } from "react";
 import { useSelector } from "react-redux";
+import dynamic from "next/dynamic";
 
 import styles from "@/styles/cart/Cart.module.scss";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 import CartLoader from "../contentLoader/CartLoader";
-const CartItem = lazy(() => import("./CartItem"));
+const CartItem = dynamic(() => import("./CartItem"), {
+  ssr: false,
+  loading: () => <CartLoader />,
+});
 
 function Cart() {
   const cartItem = useSelector((state) => state.shoppingCart.value);
@@ -26,11 +30,7 @@ function Cart() {
       <div className={styles["cart-container"]}>
         <div className={styles["cart-content-container"]}>
           {cartItem.length > 0 &&
-            cartItem.map((item, id) => (
-              <LazyLoadComponent placeholder={<CartLoader />} key={id}>
-                <CartItem item={item} />
-              </LazyLoadComponent>
-            ))}
+            cartItem.map((item, id) => <CartItem key={id} item={item} />)}
         </div>
       </div>
 
@@ -40,7 +40,7 @@ function Cart() {
           <p className="total-price">{totalPrice + ".00$"}</p>
         </div>
         <div className={styles["sub-left"]}>
-          <Link>Go to Checkout</Link>
+          <Link href="">Go to Checkout</Link>
         </div>
       </div>
     </>

@@ -1,5 +1,4 @@
-import React from "react";
-
+"use client";
 import styles from "@/styles/product/ListProducts.module.scss";
 import ProductItem from "./ProductItem";
 

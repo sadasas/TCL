@@ -1,20 +1,17 @@
+"use client";
+import Link from "next/link";
 import React, { useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { TbSquareArrowRight, TbSquareArrowLeft } from "react-icons/tb";
 import detectElementOverflow from "detect-element-overflow";
 
-import sofa from "@/assets/img/categories/sofa.png";
-import table from "@/assets/img/categories/table.png";
-import chair from "@/assets/img/categories/chair.png";
-import lamp from "@/assets/img/categories/lamp.png";
-import cupboard from "@/assets/img/categories/cupboard.png";
 import styles from "@/styles/categories/CategoriesHeader.module.scss";
+import Image from "next/image";
 
 function Box({ category, imgURL, innerRef }) {
   return (
-    <Link ref={innerRef} className={styles.box} to={category}>
+    <Link ref={innerRef} className={styles.box} href={`/category/${category}`}>
       <div className={styles["img-container"]}>
-        <img src={imgURL} />
+        <Image sizes="60px" alt="category" fill={true} src={imgURL} />
       </div>
       <h6>{category}</h6>
     </Link>
@@ -26,6 +23,12 @@ function CategoriesHeader() {
   const slider = useRef(null);
 
   const [isSliderOvervlow, setIsSliderOvervlow] = useState(false);
+
+  const sofa = "/img/categories/sofa.png";
+  const table = "/img/categories/table.png";
+  const chair = "/img/categories/chair.png";
+  const lamp = "/img/categories/lamp.png";
+  const cupboard = "/img/categories/cupboard.png";
 
   const slideLeft = () => {
     let slider = document.getElementById(`slider-category`);

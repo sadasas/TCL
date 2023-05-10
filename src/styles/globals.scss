@@ -1,5 +1,8 @@
-@use "variables" as *;
+@use "./variables" as *;
 
+html {
+  scroll-behavior: smooth;
+}
 :root {
   font-family: "Lucida Console", monospace;
   line-height: 1.5;

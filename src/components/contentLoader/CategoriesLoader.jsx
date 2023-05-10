@@ -1,8 +1,7 @@
-import React from "react";
 import ContentLoader from "react-content-loader";
 import styles from "@/styles/ContentLoader.module.scss";
 
-const CategoriesLoader = (props) => (
+const CategoriesLoader = () => (
   <ContentLoader
     className={styles.container}
     width={560}
@@ -10,7 +9,6 @@ const CategoriesLoader = (props) => (
     viewBox="0 0 560 110"
     backgroundColor="#EEEEEE"
     foregroundColor="#ffffff"
-    {...props}
   >
     <rect x="12" y="0" rx="2" ry="2" width="100" height="100" />
     <rect x="120" y="0" rx="2" ry="2" width="100" height="100" />

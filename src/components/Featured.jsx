@@ -1,70 +1,68 @@
-import { Link } from "react-router-dom";
-import React from "react";
+"use client";
+import Link from "next/link";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-import Main1 from "@/assets/img/featured/elegant-life.jpg";
-import Main2 from "@/assets/img/featured/relaxing-lamp.jpg";
-import Main3 from "@/assets/img/featured/table.jpg";
-import Main4 from "@/assets/img/featured/kitchen.jpg";
 import styles from "@/styles/featured/Featured.module.scss";
-import placeholderImg from "/img/placeholder/loadingImage.svg";
 
 function Featured() {
+  const Main1 = "/img/featured/elegant-life.jpg";
+  const Main2 = "/img/featured/relaxing-lamp.jpg";
+  const Main3 = "/img/featured/table.jpg";
+  const Main4 = "/img/featured/kitchen.jpg";
+  const placeholderImg = "/img/placeholder/loadingImage.svg";
   return (
-    <>
-      <div className="container">
-        <div className={styles["grid-container"]}>
-          <div className={`${styles["featured"]} ${styles["grid-one"]}`}>
-            <Link to="categories/sofa">
-              <div id="img1" className={styles["overlay"]}></div>
+    <div className="container">
+      <div className={styles["grid-container"]}>
+        <div className={`${styles["featured"]} ${styles["grid-one"]}`}>
+          <Link href="category/sofa">
+            <div id="img1" className={styles["overlay"]}></div>
 
-              <LazyLoadImage
-                placeholderSrc={placeholderImg}
-                src={Main1}
-                alt="img1"
-              />
-              <p className={styles["main-description"]}>Elegant live</p>
-            </Link>
-          </div>
-          <div className={`${styles["featured"]} ${styles["grid-two"]}`}>
-            <Link to="categories/lamp">
-              <div id="img2" className={styles["overlay"]}></div>
+            <LazyLoadImage
+              placeholderSrc={placeholderImg}
+              src={Main1}
+              alt="img1"
+            />
+            <p className={styles["main-description"]}>Elegant live</p>
+          </Link>
+        </div>
+        <div className={`${styles["featured"]} ${styles["grid-two"]}`}>
+          <Link href="category/lamp">
+            <div id="img2" className={styles["overlay"]}></div>
 
-              <LazyLoadImage
-                placeholderSrc={placeholderImg}
-                src={Main2}
-                alt="img2"
-              />
-              <p className={styles["main-description"]}>Lamps</p>
-            </Link>
-          </div>
-          <div className={`${styles["featured"]} ${styles["grid-four"]}`}>
-            <Link to="categories/table">
-              <div id="img3" className={styles["overlay"]}></div>
+            <LazyLoadImage
+              placeholderSrc={placeholderImg}
+              src={Main2}
+              alt="img2"
+            />
+            <p className={styles["main-description"]}>Lamps</p>
+          </Link>
+        </div>
+        <div className={`${styles["featured"]} ${styles["grid-four"]}`}>
+          <Link href="category/table">
+            <div id="img3" className={styles["overlay"]}></div>
 
-              <LazyLoadImage
-                placeholderSrc={placeholderImg}
-                src={Main3}
-                alt="img3"
-              />
-              <p className={styles["main-description"]}>Table</p>
-            </Link>
-          </div>
-          <div className={`${styles["featured"]} ${styles["grid-four-low"]}`}>
-            <Link to="categories/chair">
-              <div id="img4" className={styles["overlay"]}></div>
+            <LazyLoadImage
+              placeholderSrc={placeholderImg}
+              src={Main3}
+              alt="img3"
+            />
+            <p className={styles["main-description"]}>Table</p>
+          </Link>
+        </div>
+        <div className={`${styles["featured"]} ${styles["grid-four-low"]}`}>
+          <Link href="category/chair">
+            <div id="img4" className={styles["overlay"]}></div>
 
-              <LazyLoadImage
-                placeholderSrc={placeholderImg}
-                src={Main4}
-                alt="img4"
-              />
-              <p className={styles["main-description"]}>kitchen</p>
-            </Link>
-          </div>
+            <LazyLoadImage
+              placeholderSrc={placeholderImg}
+              src={Main4}
+              alt="img4"
+            />
+            <p className={styles["main-description"]}>kitchen</p>
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

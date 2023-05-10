@@ -1,8 +1,7 @@
-import React from "react";
 import ContentLoader from "react-content-loader";
 import styles from "@/styles/ContentLoader.module.scss";
 
-const FeaturedLoader = (props) => (
+const FeaturedLoader = () => (
   <ContentLoader
     className={styles.container}
     width={800}
@@ -10,7 +9,6 @@ const FeaturedLoader = (props) => (
     viewBox="0 0 800 420"
     backgroundColor="#EEEEEE"
     foregroundColor="#ffffff"
-    {...props}
   >
     <rect x="12" y="5" rx="2" ry="2" width="311" height="400" />
     <rect x="340" y="5" rx="2" ry="2" width="211" height="190" />

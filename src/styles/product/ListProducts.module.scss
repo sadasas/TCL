@@ -1,11 +1,10 @@
-@use "../../variables" as *;
-
-a {
-  text-decoration: none;
-  color: black;
-}
+@use "../variables" as *;
 
 .product-container {
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .title {
