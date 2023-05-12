@@ -9,10 +9,10 @@ import dynamic from "next/dynamic";
 import EmptyCart from "../carts/EmptyCart";
 
 import styles from "@/styles/Navbar.module.scss";
-import CartLoader from "../contentLoader/CartLoader";
+import DotLoader from "../contentLoader/DotLoader";
 const MobileNav = dynamic(() => import("./MobileNav"));
 const Cart = dynamic(() => import("../carts/Cart"), {
-  loading: () => <CartLoader />,
+  loading: () => <DotLoader />,
 });
 
 function Navbar() {

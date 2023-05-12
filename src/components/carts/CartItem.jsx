@@ -46,7 +46,7 @@ function CartItem({ id, item }) {
           <img src={item.img} alt="product" />
         </div>
         <div className={styles["cart-middle"]}>
-          <p className={styles["cart-name"]}>{item.description}</p>
+          <p className={styles["cart-name"]}>{item.title}</p>
           <div className={styles["cart-btns"]}>
             <h2 onClick={decrease}>-</h2>
             <p className={styles.quantity}>{quantity}</p>

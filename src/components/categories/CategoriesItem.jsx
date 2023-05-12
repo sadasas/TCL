@@ -21,8 +21,8 @@ function CategoriesItem({ scrollPosition }) {
       <div className={styles["product-container"]}>
         <div className={styles.title}>{type}</div>
         <div className={styles["products-content-container"]}>
-          {categoryProducts.map((item) => (
-            <ProductItem key={item.id} item={item} />
+          {categoryProducts.map((item, index) => (
+            <ProductItem key={index} item={item} />
           ))}
         </div>
       </div>

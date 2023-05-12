@@ -10,7 +10,6 @@ import styles from "@/styles/pages/product/ProductDescription.module.scss";
 
 function ProductDescription({ item }) {
   const dispatch = useDispatch();
-  console.log(item);
   const [quantity, setQuantity] = useState(1);
 
   const [image, setImage] = useState(item[0].img);

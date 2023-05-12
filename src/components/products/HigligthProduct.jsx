@@ -31,8 +31,8 @@ function HigligthProduct({ items, title, logoUrl, colorTitle }) {
         </div>
         <div className={styles["right-content"]}>
           <div id={`slider-${title}`} className={styles["slider-container"]}>
-            {items.map((item) => (
-              <ProductItem key={item.id} item={item} />
+            {items.map((item, index) => (
+              <ProductItem key={index} item={item} />
             ))}
           </div>
           <TbSquareArrowLeft
