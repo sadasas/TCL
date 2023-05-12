@@ -1,7 +1,7 @@
 @use "./variables" as *;
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 :root {
   font-family: "Lucida Console", monospace;
