@@ -1,11 +1,10 @@
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
-const uri = process.env.NEXT_PUBLIC_GRAPHQL_URI;
 export async function getDataQueryServer(query, accessToken) {
   if (accessToken) {
     const client = new ApolloClient({
       link: new HttpLink({
-        uri: uri,
+        uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
         headers: {
           authorization: `Bearer ${accessToken}`,
         },
