@@ -1,12 +1,12 @@
 import CartLoader from "@/components/contentLoader/CartLoader";
-import ListLoader from "@/components/contentLoader/ListLoader";
+import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
 import styles from "@/styles/Loading.module.scss";
 
 export default function Loading() {
   return (
     <div className={styles["loading-container"]}>
       <CartLoader />
-      <ListLoader />
+      <HighligthLLoader />
     </div>
   );
 }
