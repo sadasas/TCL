@@ -17,13 +17,25 @@ function MobileNav({ mobileNav, setMobileNav }) {
       </h2>
 
       <div className={styles["mobile-links"]}>
-        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/sofa">
+        <Link
+          prefetch={false}
+          onClick={() => setMobileNav(!mobileNav)}
+          href="/category/sofa"
+        >
           categories
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/lamp">
+        <Link
+          prefetch={false}
+          onClick={() => setMobileNav(!mobileNav)}
+          href="/category/lamp"
+        >
           lamps
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/chair">
+        <Link
+          prefetch={false}
+          onClick={() => setMobileNav(!mobileNav)}
+          href="/category/chair"
+        >
           chairs
         </Link>
       </div>

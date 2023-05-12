@@ -24,7 +24,7 @@ function Banner({ title, text, img, justify, scrollPosition }) {
           <div className={styles["text-container"]}>
             <h2>{title}</h2>
             <p>{text}</p>
-            <Link href="category/sofa">
+            <Link prefetch={false} href="category/sofa">
               <button>Shop now</button>
             </Link>
           </div>

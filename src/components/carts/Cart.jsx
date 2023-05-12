@@ -40,7 +40,9 @@ function Cart() {
           <p className="total-price">{totalPrice + ".00$"}</p>
         </div>
         <div className={styles["sub-left"]}>
-          <Link href="">Go to Checkout</Link>
+          <Link prefetch={false} href="">
+            Go to Checkout
+          </Link>
         </div>
       </div>
     </>

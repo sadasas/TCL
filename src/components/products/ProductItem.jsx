@@ -11,7 +11,7 @@ function ProductItem({ item, scrollPosition }) {
   const PlaceholderImg = "/img/placeholder/loadingImage.svg";
   return (
     <div className={`${styles["product"]}`}>
-      <Link href={`/product/${item._id}`}>
+      <Link prefetch={false} href={`/product/${item._id}`}>
         <div className={styles["product-header"]}>
           <LazyLoadImage
             scrollPosition={scrollPosition}

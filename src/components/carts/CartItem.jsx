@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
+import Image from "next/image";
 
 import { removeItem } from "@/features/shoppingChartSlice";
 import styles from "@/styles/cart/CartItem.module.scss";
@@ -43,7 +44,7 @@ function CartItem({ id, item }) {
     <>
       <div key={id} id={id} className={styles["cart-item"]}>
         <div className={styles["cart-img"]}>
-          <img src={item.img} alt="product" />
+          <Image fill={true} sizes="150px" src={item.img} alt="product" />
         </div>
         <div className={styles["cart-middle"]}>
           <p className={styles["cart-name"]}>{item.title}</p>

@@ -14,7 +14,7 @@ function Featured() {
     <div className="container">
       <div className={styles["grid-container"]}>
         <div className={`${styles["featured"]} ${styles["grid-one"]}`}>
-          <Link href="category/sofa">
+          <Link prefetch={false} href="category/sofa">
             <div id="img1" className={styles["overlay"]}></div>
 
             <LazyLoadImage
@@ -26,7 +26,7 @@ function Featured() {
           </Link>
         </div>
         <div className={`${styles["featured"]} ${styles["grid-two"]}`}>
-          <Link href="category/lamp">
+          <Link prefetch={false} href="category/lamp">
             <div id="img2" className={styles["overlay"]}></div>
 
             <LazyLoadImage
@@ -38,7 +38,7 @@ function Featured() {
           </Link>
         </div>
         <div className={`${styles["featured"]} ${styles["grid-four"]}`}>
-          <Link href="category/table">
+          <Link prefetch={false} href="category/table">
             <div id="img3" className={styles["overlay"]}></div>
 
             <LazyLoadImage

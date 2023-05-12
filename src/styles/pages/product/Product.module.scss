@@ -91,7 +91,9 @@
   font-size: 2rem;
   display: none;
 }
-
+.item-price {
+  font-size: 1.8rem;
+}
 .btns {
   display: flex;
   gap: 20px;
@@ -181,6 +183,10 @@
     justify-content: center;
     font-size: 1.5rem;
   }
+  .item-price {
+    text-align: center;
+    font-size: 1.7rem;
+  }
   .quantity-btn-container {
     flex: 1 1 100%;
   }
@@ -202,6 +208,10 @@
   }
   .product-title-mobile {
     display: block;
+  }
+  .item-price {
+    text-align: center;
+    font-size: 1.7rem;
   }
   .btns {
     flex-wrap: wrap;
@@ -229,6 +239,10 @@
   }
   .product-title-mobile {
     display: block;
+  }
+  .item-price {
+    text-align: center;
+    font-size: 1.7rem;
   }
   .btns {
     flex-wrap: wrap;

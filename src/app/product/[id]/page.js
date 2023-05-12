@@ -9,7 +9,6 @@ import { useQuery, gql } from "@apollo/client";
 import { addItem } from "@/features/shoppingChartSlice";
 import styles from "@/styles/pages/product/Product.module.scss";
 import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
-import DotLoader from "@/components/contentLoader/DotLoader";
 import CartLoader from "@/components/contentLoader/CartLoader";
 const HigligthProduct = dynamic(
   () => import("@/components/products/HigligthProduct"),
@@ -24,7 +23,6 @@ const GET_PRODUCTS = gql`
     products(limit: 18) {
       _id
       img
-      price
       title
     }
   }
@@ -37,6 +35,7 @@ const GET_PRODUCT_BY_ID = (id) => gql`
 		category
 		description
 		img
+    price
 		otherImgs
         title
       }
@@ -140,6 +139,9 @@ export default function Page({ params }) {
             </div>
             <div className={styles["product-right"]}>
               <h1 className={styles["product-title"]}>{item.title}</h1>
+              <div className={styles["item-price"]}>
+                ${item.price * quantity}
+              </div>
               <div className={styles.btns}>
                 <div className={styles["quantity-btn-container"]}>
                   <div className={styles["quantity-btn"]}>

@@ -74,10 +74,10 @@ function Navbar() {
           <div
             className={`${styles["nav-content-container"]} ${styles["nav-links"]}`}
           >
-            <Link className={styles.logo} href="/">
+            <Link prefetch={false} className={styles.logo} href="/">
               <h2>TCL</h2>
             </Link>
-            <Link href="/category/sofa">
+            <Link prefetch={false} href="/category/sofa">
               <h2>categories</h2>
             </Link>
           </div>

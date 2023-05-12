@@ -2,6 +2,7 @@
 
 .empty-cart {
   display: flex;
+
   flex-direction: column;
   text-align: center;
   align-items: center;
@@ -9,7 +10,6 @@
   margin: 0 auto;
   h2 {
     font-weight: 800;
-    margin-top: 4rem;
   }
   img {
     width: 300px;
