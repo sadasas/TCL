@@ -10,6 +10,7 @@ import { addItem } from "@/features/shoppingChartSlice";
 import styles from "@/styles/pages/product/Product.module.scss";
 import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
 import CartLoader from "@/components/contentLoader/CartLoader";
+import ScrollUp from "@/components/ScrollUp";
 const HigligthProduct = dynamic(
   () => import("@/components/products/HigligthProduct"),
   {
@@ -181,6 +182,7 @@ export default function Page({ params }) {
         ) : (
           <HighligthLLoader />
         )}
+        <ScrollUp />
       </div>
     </div>
   );
