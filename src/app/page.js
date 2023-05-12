@@ -8,22 +8,11 @@ import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
 import ListLoader from "@/components/contentLoader/ListLoader";
 import { getDataQueryServer } from "./api/getDataQuery";
 import { getAccessToken } from "./api/getAccessToken";
-const ListProduct = dynamic(() => import("@/components/products/ListProduct"), {
-  loading: () => <ListLoader />,
-});
-const HigligthProduct = dynamic(
-  () => import("@/components/products/HigligthProduct"),
-  {
-    loading: () => <HighligthLLoader />,
-  }
-);
-const Banner = dynamic(() => import("@/components/Banner"), {
-  loading: () => <BannerLoader />,
-});
-const Featured = dynamic(() => import("@/components/Featured"), {
-  ssr: false,
-  loading: () => <FeaturedLoader />,
-});
+import Featured from "@/components/Featured";
+import ListProduct from "@/components/products/ListProduct";
+import Banner from "@/components/Banner";
+import HigligthProduct from "@/components/products/HigligthProduct";
+import { Suspense } from "react";
 
 const GET_PRODUCTS = gql`
   query Query {
@@ -51,33 +40,47 @@ async function Home() {
   const Banner2 = "/img/banner/banner2.jpg";
   return (
     <main className={styles["home-container"]}>
-      <Featured />
-      <ListProduct items={featuredProducts} title="Featured Product" />
-      <Banner
-        title="Elegant harmonious living"
-        text=" All products are handmade by professional craftsmen."
-        img={Banner1}
-        justify="left"
-      />
-      <HigligthProduct
-        logoUrl="/img/trending.svg"
-        title={"Trending Items"}
-        items={trendingProducts}
-        colorTitle="#146C94"
-      />
-      <HigligthProduct
-        logoUrl="/img/trending.svg"
-        title={"Discount Items"}
-        items={discountProducts}
-        colorTitle="#E06469"
-      />
-      <Banner
-        title="The furniture that defines you"
-        text=" All products are handmade by professional craftsmen."
-        img={Banner2}
-        justify="right"
-      />
-      <ListProduct items={chairProducts} title="Chairs" />
+      <Suspense fallback={<FeaturedLoader />}>
+        <Featured />
+      </Suspense>
+      <Suspense fallback={<ListLoader />}>
+        <ListProduct items={featuredProducts} title="Featured Product" />
+      </Suspense>
+      <Suspense fallback={<BannerLoader />}>
+        <Banner
+          title="Elegant harmonious living"
+          text=" All products are handmade by professional craftsmen."
+          img={Banner1}
+          justify="left"
+        />
+      </Suspense>
+      <Suspense fallback={<HighligthLLoader />}>
+        <HigligthProduct
+          logoUrl="/img/trending.svg"
+          title={"Trending Items"}
+          items={trendingProducts}
+          colorTitle="#146C94"
+        />
+      </Suspense>
+      <Suspense fallback={<HighligthLLoader />}>
+        <HigligthProduct
+          logoUrl="/img/trending.svg"
+          title={"Discount Items"}
+          items={discountProducts}
+          colorTitle="#E06469"
+        />
+      </Suspense>
+      <Suspense fallback={<BannerLoader />}>
+        <Banner
+          title="The furniture that defines you"
+          text=" All products are handmade by professional craftsmen."
+          img={Banner2}
+          justify="right"
+        />
+      </Suspense>
+      <Suspense fallback={<ListLoader />}>
+        <ListProduct items={chairProducts} title="Chairs" />
+      </Suspense>
     </main>
   );
 }
