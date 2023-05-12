@@ -24,6 +24,7 @@ const GET_PRODUCTS = gql`
       _id
       img
       title
+      price
     }
   }
 `;
