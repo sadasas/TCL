@@ -9,12 +9,7 @@ import Image from "next/image";
 
 function Box({ category, imgURL, innerRef }) {
   return (
-    <Link
-      prefetch={false}
-      ref={innerRef}
-      className={styles.box}
-      href={`/category/${category}`}
-    >
+    <Link ref={innerRef} className={styles.box} href={`/category/${category}`}>
       <div className={styles["img-container"]}>
         <Image sizes="60px" alt="category" fill={true} src={imgURL} />
       </div>
