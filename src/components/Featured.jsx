@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import styles from "@/styles/featured/Featured.module.scss";
-
+  
 function Featured() {
   const Main1 = "/img/featured/elegant-life.jpg";
   const Main2 = "/img/featured/relaxing-lamp.jpg";

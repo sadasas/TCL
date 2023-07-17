@@ -1,6 +1,6 @@
 "use client";
 
-import { getAccessToken } from "@/app/api/getAccessToken";
+import { getAccessToken } from "app/api/getAccessToken";
 import {
   ApolloClient,
   ApolloProvider,

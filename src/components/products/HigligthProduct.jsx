@@ -6,12 +6,14 @@ import styles from "@/styles/product/HiglightProduct.module.scss";
 import ProductItem from "./ProductItem";
 
 function HigligthProduct({ items, title, logoUrl, colorTitle }) {
-  const slideLeft = () => {
+  const slideLeft = (e) => {
+    e.preventDefault();
     let slider = document.getElementById(`slider-${title}`);
     slider.scrollLeft = slider.scrollLeft - 400 - 10;
   };
 
-  const slideRight = () => {
+  const slideRight = (e) => {
+    e.preventDefault();
     let slider = document.getElementById(`slider-${title}`);
     slider.scrollLeft = slider.scrollLeft + 400 + 10;
   };

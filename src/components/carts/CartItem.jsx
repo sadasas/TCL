@@ -4,9 +4,9 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
 
-import { removeItem } from "@/features/shoppingChartSlice";
+import { removeItem } from "features/shoppingChartSlice";
 import styles from "@/styles/cart/CartItem.module.scss";
-import { updateItem } from "@/features/shoppingChartSlice";
+import { updateItem } from "features/shoppingChartSlice";
 
 function CartItem({ id, item }) {
   const [quantity, setQuantity] = useState(item.piece);
@@ -16,13 +16,15 @@ function CartItem({ id, item }) {
     dispatch(updateItem({ description: name, piece: q }));
 
   const delCartItem = (i) => dispatch(removeItem(i));
-  const increase = () => {
+  const increase = (e) => {
+    e.preventDefault();
     if (quantity >= 1) {
       setQuantity(quantity + 1);
     }
   };
 
-  const decrease = () => {
+  const decrease = (e) => {
+    e.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }

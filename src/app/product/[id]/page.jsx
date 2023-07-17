@@ -5,12 +5,16 @@ import { useDispatch } from "react-redux";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useQuery, gql } from "@apollo/client";
+import { useRouter } from "next/navigation";
 
-import { addItem } from "@/features/shoppingChartSlice";
 import styles from "@/styles/pages/product/Product.module.scss";
+
+import { addItem } from "features/shoppingChartSlice";
+import checkUser from "utils/checkUser";
 import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
 import CartLoader from "@/components/contentLoader/CartLoader";
 import ScrollUp from "@/components/ScrollUp";
+
 const HigligthProduct = dynamic(
   () => import("@/components/products/HigligthProduct"),
   {
@@ -46,7 +50,7 @@ const GET_PRODUCT_BY_ID = (id) => gql`
 
 export default function Page({ params }) {
   const { id } = params;
-
+  const route = useRouter();
   const {
     loading: loadingProduct,
     error: errorProduct,
@@ -71,18 +75,25 @@ export default function Page({ params }) {
     dispatch(addItem(nitem));
   };
 
+  const buyHandler = (e) => {
+    e.preventDefault();
+    if (!checkUser()) route.push("/login");
+  };
   const changeImage = (e) => {
+    e.preventDefault();
     setImage(e.target.src);
   };
 
-  const increase = () => {
+  const increase = (e) => {
+    e.preventDefault();
     if (quantity >= 1) {
       setQuantity((e) => e + 1);
       item.piece = quantity;
     }
   };
 
-  const decrease = () => {
+  const decrease = (e) => {
+    e.preventDefault();
     if (quantity > 1) {
       setQuantity((e) => e - 1);
       item.piece = quantity;
@@ -162,7 +173,9 @@ export default function Page({ params }) {
                 >
                   add to cart
                 </button>
-                <button className={styles["buy-btn"]}>buy now</button>
+                <button onClick={buyHandler} className={styles["buy-btn"]}>
+                  buy now
+                </button>
               </div>
 
               <p className={styles["product-detail"]}>{item.description}</p>

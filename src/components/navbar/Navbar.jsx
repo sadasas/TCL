@@ -30,7 +30,8 @@ function Navbar() {
     }
   };
 
-  const openCart = () => {
+  const openCart = (e) => {
+    e.preventDefault();
     setCart(!cart);
   };
 
@@ -91,7 +92,10 @@ function Navbar() {
               <AiOutlineShoppingCart onClick={openCart} />
             </h2>
             <RxHamburgerMenu
-              onClick={() => setMobileNav(!mobileNav)}
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileNav(!mobileNav);
+              }}
               className={styles["hamburger-icon"]}
             />
           </div>

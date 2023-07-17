@@ -13,17 +13,40 @@ function MobileNav({ mobileNav, setMobileNav }) {
       }`}
     >
       <h2 className={styles["close-btn"]}>
-        <AiOutlineClose onClick={() => setMobileNav(!mobileNav)} />
+        <AiOutlineClose
+          onClick={(e) => {
+            e.preventDefault();
+            setMobileNav(!mobileNav);
+          }}
+        />
       </h2>
 
       <div className={styles["mobile-links"]}>
-        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/sofa">
+        <Link
+          onClick={(e) => {
+            e.preventDefault();
+            setMobileNav(!mobileNav);
+          }}
+          href="/category/sofa"
+        >
           categories
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/lamp">
+        <Link
+          onClick={(e) => {
+            e.preventDefault();
+            setMobileNav(!mobileNav);
+          }}
+          href="/category/lamp"
+        >
           lamps
         </Link>
-        <Link onClick={() => setMobileNav(!mobileNav)} href="/category/chair">
+        <Link
+          onClick={(e) => {
+            e.preventDefault();
+            setMobileNav(!mobileNav);
+          }}
+          href="/category/chair"
+        >
           chairs
         </Link>
       </div>

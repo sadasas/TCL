@@ -3,8 +3,8 @@ import { gql } from "@apollo/client";
 
 import ListLoader from "@/components/contentLoader/ListLoader";
 import styles from "@/styles/categories/CategoriesItem.module.scss";
-import { getDataQueryServer } from "@/app/api/getDataQuery";
-import { getAccessToken } from "@/app/api/getAccessToken";
+import { getDataQueryServer } from "app/api/getDataQuery";
+import { getAccessToken } from "app/api/getAccessToken";
 const ProductItem = dynamic(() => import("@/components/products/ProductItem"), {
   loading: () => <ListLoader />,
 });

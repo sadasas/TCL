@@ -1,9 +1,9 @@
 import "@/styles/globals.scss";
-import Footer from "../components/Footer";
-import Navbar from "../components/navbar/Navbar";
-import ApolloClientProvider from "@/utils/ApolloProvider";
-import ReduxProvider from "@/utils/ReduxProvider";
-import QueryProvider from "@/utils/ReactQueryProvider";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/navbar/Navbar";
+import ApolloClientProvider from "utils/ApolloProvider";
+import ReduxProvider from "utils/ReduxProvider";
+import QueryProvider from "utils/ReactQueryProvider";
 
 export const metadata = {
   title: "TCL",

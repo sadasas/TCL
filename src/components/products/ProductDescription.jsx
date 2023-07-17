@@ -26,14 +26,16 @@ function ProductDescription({ item }) {
     setImage(e.target.src);
   };
 
-  const increase = () => {
+  const increase = (e) => {
+    e.preventDefault();
     if (quantity >= 1) {
       setQuantity((e) => e + 1);
       item[0].piece = quantity;
     }
   };
 
-  const decrease = () => {
+  const decrease = (e) => {
+    e.preventDefault();
     if (quantity > 1) {
       setQuantity((e) => e - 1);
       item[0].piece = quantity;

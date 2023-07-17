@@ -30,12 +30,14 @@ function CategoriesHeader() {
   const lamp = "/img/categories/lamp.png";
   const cupboard = "/img/categories/cupboard.png";
 
-  const slideLeft = () => {
+  const slideLeft = (e) => {
+    e.preventDefault();
     let slider = document.getElementById(`slider-category`);
     slider.scrollLeft = slider.scrollLeft - 400 - 10;
   };
 
-  const slideRight = () => {
+  const slideRight = (e) => {
+    e.preventDefault();
     let slider = document.getElementById(`slider-category`);
     slider.scrollLeft = slider.scrollLeft + 400 + 10;
   };
