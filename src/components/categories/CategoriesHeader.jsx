@@ -3,9 +3,9 @@ import Link from "next/link";
 import React, { useRef, useEffect, useState } from "react";
 import { TbSquareArrowRight, TbSquareArrowLeft } from "react-icons/tb";
 import detectElementOverflow from "detect-element-overflow";
+import Image from "next/image";
 
 import styles from "@/styles/categories/CategoriesHeader.module.scss";
-import Image from "next/image";
 
 function Box({ category, imgURL, innerRef }) {
   return (

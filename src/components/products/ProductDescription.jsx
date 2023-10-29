@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch } from "react-redux";
 import Image from "next/image";
 
@@ -47,11 +46,7 @@ function ProductDescription({ item }) {
       <h1 className={styles["product-title-mobile"]}>{item[0].description}</h1>
       <div className={styles["product-left"]}>
         <div className={styles["primary-img"]}>
-          <LazyLoadImage
-            placeholderSrc={Placeholder}
-            effect="blur"
-            src={image}
-          />
+          <Image alt="product" effect="blur" src={image} />
         </div>
         <div className={styles["secondary-imgs"]}>
           <div className={styles["secondary-img-wrapper"]}>

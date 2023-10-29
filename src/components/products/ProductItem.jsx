@@ -1,20 +1,20 @@
 "use client";
-import {
-  LazyLoadImage,
-  trackWindowScroll,
-} from "react-lazy-load-image-component";
+
 import Link from "next/link";
+import Image from "next/image";
 
 import styles from "@/styles/product/ProductItem.module.scss";
 
-function ProductItem({ item, scrollPosition }) {
+function ProductItem({ item }) {
   const PlaceholderImg = "/img/placeholder/loadingImage.svg";
   return (
     <div className={`${styles["product"]}`}>
-      <Link  href={`/product/${item._id}`}>
+      <Link href={`/product/${item._id}`}>
         <div className={styles["product-header"]}>
-          <LazyLoadImage
-            scrollPosition={scrollPosition}
+          <Image
+            fill
+            sizes="100vw"
+            alt="product"
             className={styles["img-container"]}
             placeholderSrc={PlaceholderImg}
             src={item.img}
@@ -31,4 +31,4 @@ function ProductItem({ item, scrollPosition }) {
   );
 }
 
-export default trackWindowScroll(ProductItem);
+export default ProductItem;

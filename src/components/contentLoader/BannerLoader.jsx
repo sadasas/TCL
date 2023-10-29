@@ -5,8 +5,8 @@ const BannerLoader = () => (
   <ContentLoader
     className={styles.container}
     width={800}
-    height={575}
-    viewBox="0 0 800 575"
+    height={300}
+    viewBox="0 0 800 300"
     backgroundColor="#EEEEEE"
     foregroundColor="#ffffff"
   >

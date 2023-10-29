@@ -1,12 +1,30 @@
 import { gql } from "@apollo/client";
-
+import dynamic from "next/dynamic";
 import styles from "@/styles/pages/home/Home.module.scss";
 import { getDataQueryServer } from "./api/getDataQuery";
 import { getAccessToken } from "./api/getAccessToken";
 import Featured from "@/components/Featured";
-import ListProduct from "@/components/products/ListProduct";
-import Banner from "@/components/Banner";
-import HigligthProduct from "@/components/products/HigligthProduct";
+import ListLoader from "@/components/contentLoader/ListLoader";
+import BannerLoader from "@/components/contentLoader/BannerLoader";
+import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
+
+const ListProduct = dynamic(() => import("@/components/products/ListProduct"), {
+  ssr: false,
+  loading: () => <ListLoader />,
+});
+
+const Banner = dynamic(() => import("@/components/Banner"), {
+  ssr: false,
+  loading: () => <BannerLoader />,
+});
+
+const HigligthProduct = dynamic(
+  () => import("@/components/products/HigligthProduct"),
+  {
+    ssr: false,
+    loading: () => <HighligthLLoader />,
+  }
+);
 
 const GET_PRODUCTS = gql`
   query Query {

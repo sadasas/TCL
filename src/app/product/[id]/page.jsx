@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch } from "react-redux";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -115,9 +114,11 @@ export default function Page({ params }) {
             <h1 className={styles["product-title-mobile"]}>{item.title}</h1>
             <div className={styles["product-left"]}>
               <div className={styles["primary-img"]}>
-                <LazyLoadImage
+                <Image
+                  alt="product"
                   placeholderSrc={Placeholder}
-                  effect="blur"
+                  fill
+                  sizes="100vw"
                   src={image}
                 />
               </div>

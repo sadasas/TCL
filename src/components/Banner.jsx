@@ -1,13 +1,10 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 import styles from "@/styles/Banner.module.scss";
-import {
-  LazyLoadImage,
-  trackWindowScroll,
-} from "react-lazy-load-image-component";
 
-function Banner({ title, text, img, justify, scrollPosition }) {
+function Banner({ title, text, img, justify }) {
   return (
     <div className="container">
       <div
@@ -24,21 +21,17 @@ function Banner({ title, text, img, justify, scrollPosition }) {
           <div className={styles["text-container"]}>
             <h2>{title}</h2>
             <p>{text}</p>
-            <Link  href="category/sofa">
+            <Link href="category/sofa">
               <button>Shop now</button>
             </Link>
           </div>
         </div>
         <div className={styles["right-container"]}>
-          <LazyLoadImage
-            scrollPosition={scrollPosition}
-            src={img}
-            alt="banner"
-          />
+          <Image fill src={img} alt="banner" />
         </div>
       </div>
     </div>
   );
 }
 
-export default trackWindowScroll(Banner);
+export default Banner;
