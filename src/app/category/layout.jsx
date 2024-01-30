@@ -6,8 +6,13 @@ const CategoriesHeader = dynamic(
   () => import("../../components/categories/CategoriesHeader"),
   {
     loading: () => <CategoriesLoader />,
-  }
+  },
 );
+
+export const metadata = {
+  title: "TCL | category",
+  description: "category product",
+};
 
 export default function CategoryLayout({ children }) {
   return (

@@ -1,29 +1,23 @@
-"use client";
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import dynamic from "next/dynamic";
-import Image from "next/image";
-import { useQuery, gql } from "@apollo/client";
-import { useRouter } from "next/navigation";
+import { gql } from "@apollo/client";
+import { notFound } from "next/navigation";
 
 import styles from "@/styles/pages/product/Product.module.scss";
-
-import { addItem } from "features/shoppingChartSlice";
-import checkUser from "utils/checkUser";
 import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
-import CartLoader from "@/components/contentLoader/CartLoader";
 import ScrollUp from "@/components/ScrollUp";
+import { getClient } from "libs/appolloClient";
+import ProductDetail from "@/components/products/ProductDetail";
 
 const HigligthProduct = dynamic(
   () => import("@/components/products/HigligthProduct"),
   {
     ssr: false,
     loading: () => <HighligthLLoader />,
-  }
+  },
 );
 
 const GET_PRODUCTS = gql`
-  query Query {
+  query GetProducts {
     products(limit: 18) {
       _id
       img
@@ -33,171 +27,100 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const GET_PRODUCT_BY_ID = (id) => gql`
-    query Query {
-      products(query: { _id: ${JSON.stringify(id)} })  {
-        _id
-		category
-		description
-		img
-    price
-		otherImgs
-        title
-      }
+const GET_PRODUCT_BY_ID = gql`
+  query GetProduct($id: ObjectId!) {
+    products(query: { _id: $id }) {
+      _id
+      category
+      description
+      img
+      price
+      otherImgs
+      title
     }
-  `;
+  }
+`;
 
-export default function Page({ params }) {
+export async function generateMetadata({ params }) {
+  let dataProducts;
+
+  try {
+    dataProducts = await getClient().query({
+      query: GET_PRODUCT_BY_ID,
+      variables: { id: params.id },
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 },
+        },
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return notFound();
+  }
+
+  if (!dataProducts) return notFound();
+  return {
+    language: "indonesia",
+    title: dataProducts.data.products[0].title,
+    keywords: [dataProducts.data.products[0].title],
+    description: dataProducts.data.products[0].description,
+    alternates: {
+      canonical: `/products/${params.id}`,
+    },
+  };
+}
+
+export async function generateStaticParams() {
+  const resp = await getClient().query({
+    query: GET_PRODUCTS,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 5 },
+      },
+    },
+  });
+
+  return resp?.data?.products?.map((item) => ({
+    slug: item._id ? item._id : "404",
+  }));
+}
+
+export default async function Page({ params }) {
   const { id } = params;
-  const route = useRouter();
-  const {
-    loading: loadingProduct,
-    error: errorProduct,
-    data: dataProduct,
-  } = useQuery(GET_PRODUCT_BY_ID(id));
-  const {
-    loading: loadingFeaturedProducts,
-    error: errorFeaturedProducts,
-    data: dataFeaturedProducts,
-  } = useQuery(GET_PRODUCTS);
 
-  const [item, setItem] = useState();
-  const dispatch = useDispatch();
-  const [image, setImage] = useState();
-  const [quantity, setQuantity] = useState(1);
+  const product = await getClient().query({
+    query: GET_PRODUCT_BY_ID,
+    variables: { id: id },
+    context: {
+      fetchOptions: {
+        next: { revalidate: 5 },
+      },
+    },
+  });
 
-  const Placeholder = "/img/placeholder/loadingImage.svg";
+  const featuredProducts = await getClient().query({
+    query: GET_PRODUCTS,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 5 },
+      },
+    },
+  });
 
-  const addToCartHandler = (i) => {
-    const nitem = { ...i, piece: quantity };
-
-    dispatch(addItem(nitem));
-  };
-
-  const buyHandler = (e) => {
-    e.preventDefault();
-    if (!checkUser()) route.push("/login");
-  };
-  const changeImage = (e) => {
-    e.preventDefault();
-    setImage(e.target.src);
-  };
-
-  const increase = (e) => {
-    e.preventDefault();
-    if (quantity >= 1) {
-      setQuantity((e) => e + 1);
-      item.piece = quantity;
-    }
-  };
-
-  const decrease = (e) => {
-    e.preventDefault();
-    if (quantity > 1) {
-      setQuantity((e) => e - 1);
-      item.piece = quantity;
-    }
-  };
-
-  useEffect(() => {
-    if (dataProduct) {
-      setImage(dataProduct.products[0].img);
-      setItem({ ...dataProduct.products[0], piece: 0 });
-    }
-  }, [dataProduct]);
-
+  console.log(featuredProducts);
   return (
     <div className="container">
       <div className={styles["product-container"]}>
-        {!loadingProduct && item ? (
-          <div className={styles["product-content-container"]}>
-            <h1 className={styles["product-title-mobile"]}>{item.title}</h1>
-            <div className={styles["product-left"]}>
-              <div className={styles["primary-img"]}>
-                <Image
-                  alt="product"
-                  placeholderSrc={Placeholder}
-                  fill
-                  sizes="100vw"
-                  src={image}
-                />
-              </div>
-              <div className={styles["secondary-imgs"]}>
-                <div className={styles["secondary-img-wrapper"]}>
-                  <Image
-                    sizes="(max-width: 420px) 40px, 75px"
-                    fill={true}
-                    onMouseOver={changeImage}
-                    src={item.img}
-                    alt="product"
-                  />
-                </div>
-
-                {item.otherImgs.length > 0 &&
-                  item.otherImgs.map((item, index) => (
-                    <div
-                      key={index}
-                      className={styles["secondary-img-wrapper"]}
-                    >
-                      <Image
-                        sizes="(max-width: 420px) 40px, 75px"
-                        fill={true}
-                        id={item}
-                        onMouseOver={changeImage}
-                        src={item}
-                        alt="product"
-                      />
-                    </div>
-                  ))}
-              </div>
-            </div>
-            <div className={styles["product-right"]}>
-              <h1 className={styles["product-title"]}>{item.title}</h1>
-              <div className={styles["item-price"]}>
-                ${item.price * quantity}
-              </div>
-              <div className={styles.btns}>
-                <div className={styles["quantity-btn-container"]}>
-                  <div className={styles["quantity-btn"]}>
-                    <h3 onClick={decrease}>-</h3>
-                    <p className={styles.quantity}>{quantity}</p>
-                    <h3 onClick={increase}>+</h3>
-                  </div>
-                </div>
-
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    addToCartHandler(item);
-                  }}
-                  className={styles["chart-btn"]}
-                >
-                  add to cart
-                </button>
-                <button onClick={buyHandler} className={styles["buy-btn"]}>
-                  buy now
-                </button>
-              </div>
-
-              <p className={styles["product-detail"]}>{item.description}</p>
-            </div>
-          </div>
-        ) : (
-          <CartLoader />
-        )}
-
-        {!loadingFeaturedProducts && dataFeaturedProducts ? (
-          <HigligthProduct
-            logoUrl="/img/trending.svg"
-            title={"Trending Items"}
-            items={dataFeaturedProducts.products}
-            colorTitle="#146C94"
-          />
-        ) : (
-          <HighligthLLoader />
-        )}
-        <ScrollUp />
+        <ProductDetail product={product.data.products[0]} />
+        <HigligthProduct
+          logoUrl="/img/trending.svg"
+          title={"Trending Items"}
+          items={featuredProducts.data.products}
+          colorTitle="#146C94"
+        />
       </div>
+      <ScrollUp />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { getAccessToken } from "app/api/getAccessToken";
 import {
   ApolloClient,
   ApolloProvider,
@@ -8,12 +7,9 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import { getAccessToken } from "app/api/getAccessToken";
 
 const uri = process.env.NEXT_PUBLIC_GRAPHQL_URI;
-
-const httpLink = createHttpLink({
-  uri: uri,
-});
 
 const authLink = setContext(async (_, { headers }) => {
   const token = await getAccessToken();
@@ -25,7 +21,11 @@ const authLink = setContext(async (_, { headers }) => {
   };
 });
 
-const client = new ApolloClient({
+const httpLink = createHttpLink({
+  uri: uri,
+});
+
+export const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
   queryDeduplication: false,
