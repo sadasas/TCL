@@ -55,7 +55,6 @@ export async function generateMetadata({ params }) {
       },
     });
   } catch (error) {
-    console.log(error);
     return notFound();
   }
 
@@ -108,7 +107,6 @@ export default async function Page({ params }) {
     },
   });
 
-  console.log(featuredProducts);
   return (
     <div className="container">
       <div className={styles["product-container"]}>
