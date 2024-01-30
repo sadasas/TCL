@@ -1,7 +1,9 @@
 .container {
   width: 80%;
-  margin: 0 auto;
+  margin: auto;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   object-fit: fill;
-  align-self: center;
 }

@@ -7,6 +7,8 @@ import HighligthLLoader from "@/components/contentLoader/HighligthLoader";
 import ScrollUp from "@/components/ScrollUp";
 import { getClient } from "libs/appolloClient";
 import ProductDetail from "@/components/products/ProductDetail";
+import { Suspense } from "react";
+import ContentLoader from "react-content-loader";
 
 const HigligthProduct = dynamic(
   () => import("@/components/products/HigligthProduct"),
@@ -110,7 +112,9 @@ export default async function Page({ params }) {
   return (
     <div className="container">
       <div className={styles["product-container"]}>
-        <ProductDetail product={product.data.products[0]} />
+        <Suspense fallback={<ContentLoader />}>
+          <ProductDetail product={product.data.products[0]} />
+        </Suspense>
         <HigligthProduct
           logoUrl="/img/trending.svg"
           title={"Trending Items"}

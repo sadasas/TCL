@@ -16,7 +16,6 @@ function ProductItem({ item }) {
             sizes="100vw"
             alt="product"
             className={styles["img-container"]}
-            placeholderSrc={PlaceholderImg}
             src={item.img}
           />
         </div>

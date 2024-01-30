@@ -54,13 +54,7 @@ const ProductDetail = ({ product }) => {
       <h1 className={styles["product-title-mobile"]}>{item.title}</h1>
       <div className={styles["product-left"]}>
         <div className={styles["primary-img"]}>
-          <Image
-            alt="product"
-            placeholderSrc={Placeholder}
-            fill
-            sizes="100vw"
-            src={image}
-          />
+          <Image alt="product" fill sizes="100vw" src={image} />
         </div>
         <div className={styles["secondary-imgs"]}>
           <div className={styles["secondary-img-wrapper"]}>

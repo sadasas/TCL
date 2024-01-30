@@ -1,0 +1,39 @@
+@use "../variables.scss" as *;
+
+.container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  height: 90vh;
+}
+
+@include respond(extraSmall) {
+  .container {
+    width: 100%;
+  }
+}
+/* Extra small devices (phones, 600px and down) */
+@include respond(small) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@include respond(medium) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@include respond(large) {
+}
+
+@include respond(extraLarge) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@include respond(wide) {
+}

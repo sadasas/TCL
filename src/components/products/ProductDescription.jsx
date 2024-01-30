@@ -46,7 +46,7 @@ function ProductDescription({ item }) {
       <h1 className={styles["product-title-mobile"]}>{item[0].description}</h1>
       <div className={styles["product-left"]}>
         <div className={styles["primary-img"]}>
-          <Image alt="product" effect="blur" src={image} />
+          <Image alt="product" src={image} />
         </div>
         <div className={styles["secondary-imgs"]}>
           <div className={styles["secondary-img-wrapper"]}>
